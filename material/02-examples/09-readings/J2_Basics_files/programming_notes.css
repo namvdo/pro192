@@ -1,0 +1,280 @@
+/*
+ *  HTML Tag selectors
+ */
+/*  Universal selector - clear all the margin and padding to get consistent layout for Firefox and IE */
+* { 
+	margin: 0;
+	padding: 0;
+}
+body {
+	color: #000000;   /* Text in black */
+	font-family: "Segoe UI", Segoe, Calibri, Tahoma, Arial, Helvetica, Verdana, sans-serif;
+	font-size: 14px;
+}
+p {
+	margin-top: 0.7em;
+	margin-bottom: 0.3em;
+}
+pre {
+	margin: 1px 0 1px 0;        /* top right bottom left */
+	border: 1px dashed;
+	padding: 3px 10px 3px 10px; /* top right bottom left */
+	font-family: Consolas, "Lucida Console", "Courier New", Courier, monospace;
+	font-size: 13px;
+	color: #000000;             /* Text in black */
+	line-height: 130%;
+	text-align: left;
+}
+code {
+	font-family: Consolas, "Lucida Console", "Courier New", Courier, monospace;
+}
+
+/*
+ * The outermost master container division
+ * margin -> border -> padding in pixels(px)
+ * Not setting the width to enable zoom
+ */
+#container {
+	margin: 8px 20px 10px 18px;    /* top right bottom left */
+    border-left: solid 2px #0075a2;
+	padding: 20px 0 10px 0;
+}
+
+/*
+ *  Main Content Division 
+ */
+#content {
+	margin: 5px 20px 5px 15px;    /* top right bottom left */
+	padding: 0;
+	text-align: justify;
+	line-height: 140%;
+	font-size: 14px;
+}
+h1, h2, h3, h4 {
+	font-family: "Trebuchet MS", "Segoe UI", Segoe, Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0.6em 0 0.1em 0; /* top right bottom left */
+	line-height: 140%;
+	letter-spacing: 1px;
+}
+h1 {   /* Main title */
+	color: #004e6c;  /* turquoise accent 2 darker 50% */
+	font-size: 26px;
+	margin-top: 0.5em;
+/*	text-transform: uppercase; */
+}
+h2 {   /* Sub title */
+	color: #004e6c;  /* turquoise accent 2 darker 50% */
+	font-size: 22px;
+	border-bottom: 4px solid #0075a2;  /* draw bottom border - width style color */
+	padding-bottom: 0.5em;
+	margin-bottom: 2em;
+/*	text-transform: uppercase; */
+}
+h3 {   /* Section title (uppercase with bottom border) */
+	color: #0075a2;        /* turquoise accent 2 darker 25% */
+	border-bottom: 1px solid #0075a2;
+	padding: 1.2em 0 0 0;  /* top right bottom left */
+	font-size: 19px;
+	text-transform: none;
+}
+h4 {   /* sub-section title */
+	color: #0075a2;        /* turquoise accent 2 darker 25% */
+	padding: 1.5em 0 0 0;  /* top right bottom left */
+	font-family: "Segoe UI", Segoe, Verdana, "Trebuchet MS", Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	text-transform: none;
+}
+
+#content ul {
+	margin: 0.3em 0 0.2em 1.8em;  /* top right bottom left */
+	padding: 0;
+	list-style-type: square;
+	list-style-image: url(images/bullet_square.png);
+    list-style-position: outside;
+}
+#content ul ul, ol ul {   /* 2nd level ul */
+	list-style-type: circle;
+}
+#content ol {
+	margin: 0.3em 0 0.2em 2.5em;  /* top right bottom left */
+	padding: 0;
+    list-style-type: decimal;
+    list-style-position: outside;
+}
+#content ol ol, ul ol {   /* 2nd level ol */
+	list-style-type: lower-alpha;
+}
+#content li {
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+p.p-last-modified {
+	text-align: right;
+	color: #0075a2;     /* turquoise accent 2 darker 25% */
+	margin: 4em 0 0 0;  /* top right bottom left */
+}
+
+#content a {
+	color: #0075a2;    /* turquoise accent 2 darker 25% */
+	text-decoration: none;
+}
+#content a:hover {
+	color: #984806;    /* orange, accent 6, darker 50% */
+	text-decoration: underline;
+}
+
+/*
+ * Programming codes (in monospace font, usually used inside <pre>)
+ */
+.code-line-number {
+	background-color: #dae6b6;   /* lime accent 6 lighter 60% */
+    border: solid 2px #f8f8f8;   /* slight 3D shape */
+	text-align: right;
+}
+.code-line-number-width {
+	width: 40px;
+}
+.code-listing {
+    background-color: #ecf2da;   /* lime accent 6 lighter 80% */
+    border: solid 2px #f8f8f8;   /* slight 3D shape */
+}
+.code-explanation {
+	background-color: #eeeeee;
+	border: solid 2px #f8f8f8;   /* slight 3D shape */
+}
+.code-example {
+    background-color: #ecf2da;   /* lime accent 6 lighter 80% */
+	border: solid 2px #f8f8f8;   /* slight 3D shape */
+}
+.code-output {
+	background-color: #e2f6ff;   /* green, accent 5, lighter 80% */
+    border: solid 2px #f8f8f8;   /* slight 3D shape */
+    white-space: pre;
+}
+.code-command {
+	background-color: #c4eeff;
+    border:solid 2px #f8ffff;    /* slight 3D shape */
+}
+.code-syntax {  /* definition and syntax  */
+	background-color: #c7e2fa;   /* blue accent 1 lighter 80% */
+    border: solid 2px #f8f8f8;   /* slight 3D shape */
+}
+.code-comment {
+	color: #009900;
+}
+.code-error {
+	color: #ff0099;
+}
+.output-web {  /* meant to be used for <div>, not using monospace font */
+	margin: 6px 0;
+    border:solid 2px #f8f8f8;  /* slight 3D shape */
+	padding: 6px 10px;
+	background-color: #eeffff;
+	text-align: left;
+}
+
+.code-font {
+	font-family: Consolas, "Lucida Console", "Courier New", Courier, monospace;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.image-center {      /* center horizontally a image */
+	display: block;  /* auto left and right  */
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+
+.image-left {        /* left-align a image */
+	display: block;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-bottom: 0;
+}
+
+/*
+ *  Table - for tablulating data
+ */
+table.table-data {
+	margin: 12px auto;  /* auto (browser decides) on margin left & right, and text-aling center centralize the table */
+	text-align: center;
+	vertical-align: top;
+	border: 0;
+}
+table.table-data tr {           /* default for all rows */
+	background-color: #c4eeff;  /* light blue */
+}
+table.table-data tr.table-row-alt {  /* different color on alternate row */
+	background-color: #e2f6ff;       /* lighter blue */
+}
+table.table-data td {
+	padding: 2px 10px;
+	text-align: left;
+	vertical-align:top;
+}
+table.table-data td.td-center {
+	padding: 2px 10px;
+	text-align:center;
+	vertical-align:top;
+}
+table.table-data th {
+	font-family: "Trebuchet MS", "Segoe UI", Segoe, Verdana, Helvetica, Tahoma, Arial, sans-serif;
+/*	text-transform: uppercase; */
+	color: #ffffff;          /* white text on dark background */
+	background-color: #007dad;
+	padding: 4px 10px;       /* more top & bottom padding for header cell */
+	text-align:center;
+}
+
+/*
+ *  Tables for tablulating program codes - line number, code and explanation
+ */
+table.table-program {
+    width: 100%;
+	margin: 0 auto;
+	border: 0;
+	padding: 0;
+}
+table.table-program tr {
+	padding: 0;
+    margin: 0;
+}
+table.table-program tr td {
+	padding: 0;
+    margin: 0;
+	vertical-align:top;
+}
+
+table.table-program th {
+	font-family: "Trebuchet MS", "Segoe UI", Segoe, Verdana, Helvetica, Tahoma, Arial, sans-serif;
+	color: #ffffff;          /* white text on dark background */
+	background-color: #007dad;
+	padding: 4px 10px;       /* more top & bottom padding for header cell */
+	text-align:center;
+}
+
+/*
+ *  Footer Division
+ */
+#footer {
+	margin: 5px 20px 20px 20px;     /* top right bottom left */
+	border-top: 4px solid #0075a2;  /* draw top border - width style color */
+	padding: 0;                     /* top right bottom left */
+	text-align: right;
+	color: #0075a2;                 /* turquoise accent 2 darker 25% */
+	font-size: 12px;
+}
+#footer a {                         /* default <a> */
+	text-decoration: underline;
+	color: #0075a2;                 /* turquoise accent 2 darker 25% */
+}
+#footer a:hover {                   /* change color and remove underline */
+	text-decoration: none;
+	color: #984806;                 /* orange, accent 6, darker 50% */
+}

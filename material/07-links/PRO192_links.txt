@@ -1,0 +1,11 @@
+Java tutorial
+https://docs.oracle.com/javase/tutorial/
+
+data type and java platform
+http://www.tutorialspoint.com/java/java_basic_datatypes.htm
+
+java.util.Collections
+http://www.tutorialspoint.com/java/util/java_util_collections.htm
+
+java.util.ArrayList
+http://www.tutorialspoint.com/java/util/java_util_arraylist.htm

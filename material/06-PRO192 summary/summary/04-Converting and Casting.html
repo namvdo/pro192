@@ -1,0 +1,1024 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=File-List href="04-Converting%20and%20Casting_files/filelist.xml">
+<link rel=Edit-Time-Data href="04-Converting%20and%20Casting_files/editdata.mso">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Phan</o:Author>
+  <o:LastAuthor>Phan</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>37</o:TotalTime>
+  <o:Created>2014-12-02T23:50:00Z</o:Created>
+  <o:LastSaved>2014-12-03T00:27:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>1267</o:Words>
+  <o:Characters>7225</o:Characters>
+  <o:Company>Microsoft Corporation</o:Company>
+  <o:Lines>60</o:Lines>
+  <o:Paragraphs>16</o:Paragraphs>
+  <o:CharactersWithSpaces>8476</o:CharactersWithSpaces>
+  <o:Version>11.6360</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0cm;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+h1
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman";
+	font-weight:bold;}
+p
+	{font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"Times New Roman";}
+@page Section1
+	{size:612.0pt 792.0pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	mso-header-margin:36.0pt;
+	mso-footer-margin:36.0pt;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:52704559;
+	mso-list-template-ids:913358888;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:–;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+@list l1
+	{mso-list-id:245574541;
+	mso-list-template-ids:153665086;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:–;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+@list l2
+	{mso-list-id:286816278;
+	mso-list-template-ids:-1880445822;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l3
+	{mso-list-id:288902175;
+	mso-list-template-ids:130839462;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4
+	{mso-list-id:365103653;
+	mso-list-template-ids:2107939326;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l4:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l5
+	{mso-list-id:416638328;
+	mso-list-template-ids:-58686220;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:–;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+@list l6
+	{mso-list-id:483664803;
+	mso-list-template-ids:-989539494;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l7
+	{mso-list-id:742871329;
+	mso-list-template-ids:1392776978;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l8
+	{mso-list-id:751587894;
+	mso-list-template-ids:-482600918;}
+@list l8:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level2
+	{mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level3
+	{mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level4
+	{mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level5
+	{mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level6
+	{mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level7
+	{mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level8
+	{mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l8:level9
+	{mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l9
+	{mso-list-id:827674729;
+	mso-list-template-ids:825101114;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:–;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+@list l10
+	{mso-list-id:996540810;
+	mso-list-template-ids:1984735404;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l11
+	{mso-list-id:1186017381;
+	mso-list-template-ids:-2011816674;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l12
+	{mso-list-id:1256129892;
+	mso-list-template-ids:-482600918;}
+@list l12:level1
+	{mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;}
+@list l13
+	{mso-list-id:1488014807;
+	mso-list-template-ids:-68103422;}
+@list l13:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:–;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Arial;
+	mso-bidi-font-family:"Times New Roman";}
+@list l14
+	{mso-list-id:1488134976;
+	mso-list-template-ids:-989539494;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l14:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l14:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l14:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l14:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l14:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l14:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l14:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l14:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15
+	{mso-list-id:1600142369;
+	mso-list-template-ids:-989539494;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l16
+	{mso-list-id:1622419826;
+	mso-list-template-ids:2107939326;}
+@list l16:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17
+	{mso-list-id:1947615610;
+	mso-list-template-ids:-2011816674;}
+@list l17:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:36.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:72.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:108.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:144.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:180.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:216.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:252.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:288.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l17:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:;
+	mso-level-tab-stop:324.0pt;
+	mso-level-number-position:left;
+	text-indent:-18.0pt;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0cm 5.4pt 0cm 5.4pt;
+	mso-para-margin:0cm;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=blue style='tab-interval:36.0pt'>
+
+<div class=Section1>
+
+<p><a href="../summary.htm">Return to Summary</a> </p>
+
+<h1>Chapter 4. Converting and Casting</h1>
+
+<p><strong>A. Notion Summary</strong><br>
+<strong>Primitives and Conversion</strong></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo1;tab-stops:list 36.0pt'>primitive conversion might
+     occur in 3 contexts: </li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo10;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>assignment, </p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo10;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>method call, and </p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l1 level1 lfo10;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>arithmetic promotion.</p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo1;tab-stops:list 36.0pt'>assigment conversion:
+     happens when you assign a value to a variable of different type.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo1;tab-stops:list 36.0pt'>general rules for primitive
+     assignment:</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo1;tab-stops:list 36.0pt'>a boolean cannot be
+     converted to any other type</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo1;tab-stops:list 36.0pt'>a non-boolean can be
+     converted to another non-boolean, provided the conversion is a widening
+     conversion</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo1;tab-stops:list 36.0pt'>a non-boolean cannot be
+     converted to another non-boolean if the conversion is a narrowing
+     conversion</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo1;tab-stops:list 36.0pt'>if the operand on the right
+     is a literal int, it can be assigned to a byte, short or char without a
+     cast.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l6 level1 lfo1;tab-stops:list 36.0pt'>widening converstions: </li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo12;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>char to int to long to float to double</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l0 level1 lfo12;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>byte to short to int to long to float to doubl</p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo2;tab-stops:list 36.0pt'>literal values: by default
+     are either an int or a double.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo2;tab-stops:list 36.0pt'>primitive converstion:
+     arithmetic promotion</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo2;tab-stops:list 36.0pt'>unary operators: if the
+     operand is a byte, short or char, it is converted to an int (unless the
+     operator is a ++ or --)</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l16 level1 lfo2;tab-stops:list 36.0pt'>binary operators:</li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l13 level1 lfo14;tab-stops:
+list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:Arial'><span style='mso-list:
+Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>if one of the operands is a double, the other
+operand is converted to a double,</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l13 level1 lfo14;tab-stops:
+list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:Arial'><span style='mso-list:
+Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>else if one of the operands is a float, the
+other operand is converted to a float,</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l13 level1 lfo14;tab-stops:
+list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:Arial'><span style='mso-list:
+Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>else if one of the operands is a long, the other
+operand is convered to a long,</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l13 level1 lfo14;tab-stops:
+list 36.0pt'><![if !supportLists]><span style='font-size:10.0pt;mso-bidi-font-size:
+12.0pt;font-family:Arial;mso-fareast-font-family:Arial'><span style='mso-list:
+Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>else both are converted to ints.</p>
+
+<p><strong>Primitives and Casting</strong></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list 36.0pt'>Casts are required <i
+     style='mso-bidi-font-style:normal'>when you want to perform a narrowing
+     conversion</i>. Such a conversion is never performed implicitly.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list 36.0pt'>Casting to a wider value is
+     always permitted but never required.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list 36.0pt'>you can cast any
+     non-boolean type to any other non-boolean type.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l3 level1 lfo3;tab-stops:list 36.0pt'>you cannot cast any type to
+     a boolean or any boolean to another type.</li>
+</ul>
+
+<p><strong>Object Reference Conversion</strong></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l2 level1 lfo4;tab-stops:list 36.0pt'>Three kinds of object
+     reference types:</li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo16;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-family:Arial;mso-fareast-font-family:Arial'><span style='mso-list:
+Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>class type</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo16;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-family:Arial;mso-fareast-font-family:Arial'><span style='mso-list:
+Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>interface type</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l9 level1 lfo16;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-family:Arial;mso-fareast-font-family:Arial'><span style='mso-list:
+Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>array type</p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l10 level1 lfo6;tab-stops:list 36.0pt'>A class or interface can
+     be cast &quot;up&quot; the inheritance heirarchy.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l10 level1 lfo6;tab-stops:list 36.0pt'>A class can be cast to an
+     interface <i style='mso-bidi-font-style:normal'>if the class implements
+     that interface</i>.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l10 level1 lfo6;tab-stops:list 36.0pt'>An array can be cast to
+     the class Object or to the interfaces Cloneable or Serializable.</li>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l10 level1 lfo6;tab-stops:list 36.0pt'>An array of object
+     references can be cast to an array of object references of type
+     &quot;up&quot; the inheritance hierarchy.</li>
+</ul>
+
+<p><strong>Object Reference Casting</strong></p>
+
+<ul type=disc>
+ <li class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+     mso-list:l7 level1 lfo7;tab-stops:list 36.0pt'>When casting from Oldtype
+     to Newtype:</li>
+</ul>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo18;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>when both are classes, one must be a subtype of
+the other,</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo18;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>when they are both arrays, both must contain
+reference types (not primitives) and it must be legal to cast Oldtype to
+Newtype,</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo18;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>you can always cast between an interface and a
+nonfinal object.</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo18;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Runtime compatibility:</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo18;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Newtype must be Oldtype or but a superclass of
+Oldtype,</p>
+
+<p class=MsoNormal style='mso-margin-top-alt:auto;mso-margin-bottom-alt:auto;
+margin-left:36.0pt;text-indent:-18.0pt;mso-list:l5 level1 lfo18;tab-stops:list 36.0pt'><![if !supportLists]><span
+style='font-size:10.0pt;mso-bidi-font-size:12.0pt;font-family:Arial;mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>–<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>if Newtype is an interface, Oldtype must
+implement Newtype.</p>
+
+<p><strong>&nbsp;</strong></p>
+
+<p><strong>B. Summary based on questions in the text book</strong><br>
+<strong>1.&nbsp;&nbsp;&nbsp;&nbsp; </strong>In Java <strong>primitives and
+object references can be both converted and cast</strong>. <br>
+Only casting of object references potentially requires a runtime check. (<strong>Runtime
+checking</strong> is a mechanism of a programming language to check for errors
+at runtime, e.g. arithmetic overflows or invalid type casts. Most times an
+exception is thrown and/or the program is terminated). Thus, casting of numeric
+types <strong>does not</strong> require a runtime check<br>
+Objects do not take part in arithmetic operations (Except wrapping classes). <br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>2.&nbsp;&nbsp;&nbsp;&nbsp; </strong><br>
+<strong>class A {}</strong><br>
+<strong>class B extends A {}</strong></p>
+
+<p><strong>//both compile and run ok</strong><br>
+<strong>B g = new B();</strong><br>
+<strong>A t= (A) g;</strong><br>
+<strong>&nbsp;B h= (B) t; </strong></p>
+
+<p><strong>&nbsp;// compile ok, but run error</strong><br>
+<strong>&nbsp;A t= new A();</strong><br>
+<strong>&nbsp;B h= (B) t; </strong><br>
+Without the cast to sub-class B you would get a compile time error. The cast
+tells the compiler that you really mean to do this and the actual type of&nbsp;
+t does not get resolved until runtime. Casting down the object hierarchy is a
+problem, as the compiler cannot be sure what has been implemented in descendent
+classes. Casting up is not a problem because sub classes will have the features
+of the base classes. This can feel counter intuitive if you are aware that with
+primitives casting is allowed for widening operations (ie byte to int).<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>3.&nbsp;&nbsp;&nbsp;&nbsp; </strong>If s is declared by statement: <strong>short
+s = 55;</strong> &nbsp;then the statement: <strong>byte b = s;</strong>
+&nbsp;will not compile, because converting a short to a byte is a narrowing
+conversion, which requires an explicit cast. The widening conversions do not
+need explicit cast.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>4.&nbsp;&nbsp;&nbsp;&nbsp; </strong>byte b = 2; &nbsp;byte b1 = 3;
+&nbsp;/*3*/ b = b * b1;<br>
+Surprisingly, the code will fail to compile at /*3*/. The two operands, which
+are originally bytes, are converted to ints before the multiplication. The
+result of the multiplication is an int, which cannot be assigned to byte b.<br>
+void foo(int i) {&nbsp; };...&nbsp;&nbsp; char ch = ‘p’; foo(ch);<br>
+the char argument ch is widened to type int (a method-call conversion) and
+passed to the int version of method foo().<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>5.&nbsp;&nbsp;&nbsp;&nbsp; </strong>Method-call (fun(x)) and
+assignment (y=x) conversions are governed by the same rules concerning the
+legal relationships between the old and new types.<br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>6. &nbsp;&nbsp;&nbsp; </strong>Object ob = new Object(); Float x =
+new Float(3.14f); /*ERROR*/ x = ob;<br>
+Changing an Object to a Float is going “down” the inheritance hierarchy tree,
+so an explicit cast is required.<br>
+Questions 7 &amp; 8 refer to the class hierarchy shown in the graphic below.<br>
+<img border=0 width=396 height=252 id="_x0000_i1025"
+src="images/04-Converting%20and%20Casting_clip_image002.jpg"><br>
+<strong>7.&nbsp;<o:p></o:p></strong></p>
+
+<p>1. Dog rover, fido;<br>
+2. Animal anim;<br>
+3.<br>
+4. rover = new Dog();<br>
+5. anim = rover;<br>
+6. fido = (Dog)anim;<br>
+The code will compile and run. The cast in line 6 is required, because changing
+an Animal to a Dog is going “down” the tree.</p>
+
+<p><br>
+<strong>8.<o:p></o:p></strong></p>
+
+<p>1. Cat flower;<br>
+2. Washer wawa;<br>
+3. SwampThing pogo;<br>
+4.<br>
+5. flower = new Cat();<br>
+6. wawa = flower;<br>
+7. pogo = (SwampThing) wawa;<br>
+The code will compile but will throw an exception at line 7, because the
+runtime class of wawa cannot be converted to type SwampThing.<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>9.&nbsp;&nbsp;&nbsp;&nbsp; </strong>Any type may appear inside the
+parentheses of a cast: Classes, <strong>&nbsp;</strong>Interfaces, <strong>&nbsp;</strong>Arrays
+of classes,<strong> </strong>Arrays of interfaces. Thus classes with any kind
+of modifier (abstract, final,... ), may appear inside the parentheses of a cast<br
+style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>10.&nbsp; </strong>An interface may be converted only to a class,
+and the class must be Object, i.e. objectVar=interfaceVar; is correct. otherVar
+= interfaceVar; is incorrect.<br>
+interface A {}<br>
+class B implements A {}<br>
+public class Main<br>
+{public static void main(String [] args)<br>
+{A h = new B();<br>
+Object g =&nbsp; h;<br>
+System.out.println();<br>
+}<br>
+}<br>
+<strong>The following code runs without error</strong><br>
+interface A {}<br>
+class B implements A {}<br>
+public class Main<br>
+{public static void main(String [] args)<br>
+{B t = new B();<br>
+A h =&nbsp; t;<br>
+B g = (B) h;<br>
+System.out.println();<br>
+}<br>
+}<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>11.&nbsp; </strong>An array may be converted to another array,
+provided the element types of the arrays are compatible. This is sometimes, but
+not always, the case.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>12.&nbsp; </strong>The expression !s won’t compile, when s is not
+boolean.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>13.&nbsp; </strong>When a long is cast to a byte, all but the
+least-significant 8 bits are discarded. The remaining bits might represent a
+positive number, zero, or a negative number. (In <a
+href="http://en.wikipedia.org/wiki/Computing" title=Computing>computing</a>,
+the <strong>most significant bit</strong> (<strong>msb</strong>, also called
+the <strong>high-order bit</strong>) is the <a
+href="http://en.wikipedia.org/wiki/Bit" title=Bit>bit</a> position in a <a
+href="http://en.wikipedia.org/wiki/Binary_numeral_system"
+title="Binary numeral system">binary number</a> having the greatest value. The msb
+is sometimes referred to as the <strong>left-most bit</strong> due to the
+convention in <a href="http://en.wikipedia.org/wiki/Positional_notation"
+title="Positional notation">positional notation</a> of writing more significant
+digits further to the left) <br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>14. </strong>The following operators can perform promotion on their
+operands: &nbsp;+, -, ~<br>
+All numeric operators promote. !, which is strictly boolean, does not promote.<br>
+Operator promotion: If an operation is specified with operands of two different
+types, they are converted to the smallest type that can hold both values. the
+operator promotion from<br>
+&gt; &quot;float&quot; to &quot;double&quot;, &quot;int&quot; to &quot;float“
+or &quot;int&quot; to &quot;double&quot;... <br style='mso-special-character:
+line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>15.&nbsp; </strong>Method-call conversion and assignment conversion
+are governed by the same rules.<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]></p>
+
+<p><strong>16.&nbsp; </strong>The following line of code is valid?<br>
+int x = 9; byte b = x;<br>
+False<br>
+Due to the rules of widening conversions, the integer value of <em>x </em>cannot
+be automatically converted to a byte. The assignment of the variable <em>x </em>to
+the variable <em>b </em>would require an explicit cast. This cast could result
+in a loss of data, though.</p>
+
+<p><br>
+<strong>17.&nbsp; </strong>Which of the following code snippets compile?<br>
+<strong>Integer i = 7;</strong><br>
+<strong>Integer i = new Integer(5); int j = i;</strong><br>
+<strong>byte b = 7;</strong><br>
+int i = 7; byte b = i;<br>
+<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>A and B are
+examples of 5.0’s boxing and unboxing functionality. See Chapter 8 for details.
+C is a legal assignment, but D is an illegal assignment that requires a cast.</p>
+
+<p><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

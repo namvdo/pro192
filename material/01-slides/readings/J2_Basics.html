@@ -1,0 +1,2233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><title>JAVA Programming Tutorial - Java Basics</title>
+
+<link href="J2_Basics_files/programming_notes.css" rel="stylesheet" type="text/css"></head><body>
+
+<!-- Begin the outetmost container division -->
+<div id="container">
+
+<!-- begin main content division -->
+<div id="content">
+
+<h1>Java Programming</h1>
+<h2>Java Basics</h2>
+
+<p>This chapter explains the basic syntaxes of the Java programming
+language. I shall assume that you could write some simple programs
+(otherwise, read "<a href="http://www3.ntu.edu.sg/home/ehchua/programming/java/J1a_Introduction.html">Introduction To Programming</a>").</p>
+
+<h3>Revision</h3>
+
+<p>Below is a simple Java program that demostrates the basic program constructs, such as <em>sequential flow</em>, <em>for-loop</em>, and <em>if-else</em>. Read "<a href="http://www3.ntu.edu.sg/home/ehchua/programming/java/J1a_Introduction.html">Introduction To Programming</a>" if you need help in understanding this program.</p>
+ 
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+</pre>
+</td>
+<td>
+<pre class="code-listing"><span class="code-comment">/*
+ * Sum the odd and even numbers from 1 to an upperbound
+ */</span>
+public class OddAndEvenSum {   <span class="code-comment">// Save as "OddAndEvenSum.java"</span>
+   public static void main(String[] args) {
+      int sumOdd  = 0;         <span class="code-comment">// For accumulating odd numbers, init to 0</span>
+      int sumEven = 0;         <span class="code-comment">// For accumulating even numbers, init to 0</span>
+      int upperbound = 1000;   <span class="code-comment">// Sum to this upperbound</span>
+      for (int number = 1; number &lt;= upperbound; number++) {
+         if (number % 2 == 0) {  <span class="code-comment">// even</span>
+            sumEven += number;
+         } else {   <span class="code-comment">             // odd</span>
+            sumOdd += number;
+         }
+      } 
+      <span class="code-comment">// Print the results</span>
+      System.out.println("The sum of odd numbers is " + sumOdd);
+      System.out.println("The sum of even numbers is " + sumEven);
+      System.out.println("The difference is " + (sumOdd - sumEven));
+   }
+}
+</pre></td>
+</tr>
+</tbody></table>
+
+<pre class="code-output">The sum of odd numbers is 250000
+The sum of even numbers is 250500
+The difference is -500
+</pre>
+
+<h3>Comments</h3>
+<p>Comments are used to document and explain your codes and logic.
+Comments are not programming statements and are ignored by the
+compiler, but they are crucial for others to read and understand your
+program (and also to yourself three days later). You should use
+comments <em>liberally</em> to explain important as well as salient
+concepts. During program development, instead of deleting a chunk of
+statements permanently, you could <em>comment-out</em> these statements so that you could get it back later, if needed.</p>
+<p>There are two kinds of comments in Java:</p>
+<ol>
+<li><em>Multi-line Comment</em>: begins with a "<code>/*</code>" and ends with a "<code>*/</code>" and can extend for more than one lines.</li>
+<li><em>End-of-line Comment</em>: begins with "<code>//</code>" and lasts until the end of the current line.</li>
+</ol>
+
+<h3>White Spaces &amp; Programming Style</h3>
+<p><em>Blank</em>, <em>tab</em> and <em>new-line</em> are collectively called <em>white spaces</em>. Java, like most of the computer languages, ignores <em>extra</em> white spaces.  That is, multiple contiguous white spaces are treated as one white space.</p>
+<p> In Java, tab is denoted as <code>\t</code>, and newline is denoted as <code>\n</code>.</p>
+
+<p>Proper indentation (with tab, blank and new-line) greatly improves
+the readability of the program, which is extremely important for others
+(and yourself) to read and understand your programs. But it has no
+computational significance.</p>
+
+<p><strong>Alignment of the beginning and ending braces</strong>: Place the beginning brace at the end of the line, and align the ending brace with the start of the statement.</p>
+
+<p><strong>Identation</strong>: Ident the body by 3-4 spaces. I personally uses 3 spaces.</p>
+
+<p>Refer to the above example for the proper programming style.</p>
+
+<h3>Statements</h3>
+<p>A programming <em>statement</em> performs a piece of action. A programming statement must be terminated by a semi-colon "<code>;</code>". For examples,</p>
+<pre class="code-example"><span class="code-comment">// Each of the following lines is a programming statement, which ends with a semi-colon ';'.</span>
+int number1 = 10;
+int number2, number3=99;
+int product;
+product = number1 * number2 * number3;
+System.out.println("Hello");
+</pre>
+
+<p>You could group several statements into a <em>block</em> surrounded by braces <code>{ }</code>. All the statements inside the block is treated as one unit. Blocks are used as the <em>body</em>
+in constructs like class, method, if-else and for-loop. There is no
+need to put a semi-colon after the closing brace to end a block. For
+examples,</p>
+<pre class="code-example"><span class="code-comment">// Each of the following lines is a complex statement comprising one or more blocks.
+// No terminating semi-colon needed after the closing braces.
+// Note that they are usually written over a few lines for readability.</span>
+if (number &gt; 88) { System.out.println("Got it"); } else { System.out.println("Try Again"); }
+for (int i = 1; i &lt; 100; i++) { System.out.println(i); }
+while (i &lt; 8) { System.out.println(i); i++; }
+public class Hello { <em>statements</em> }
+public static void main(String[] args) { <em>statements</em> }
+</pre>
+
+<h3>Variables</h3>
+<p>A <em>variable</em> is a <em>named</em> storage location that store a <em>value</em> of a particular <em>type</em>. It is called variable because you can change the value stored by assigning (and re-arranging) different value into it.</p>
+<p> A variable is identified by its <em>name</em> (or <em>identifier</em>) and is associated with a <em>type</em> (such as <code>int</code> for integer, <code>double</code> for floating-point number, and <code>String</code> for texts). A variable must be declared with a <em>name</em> and a <em>type</em>, before it can be used in the program.  Once the <em>type</em>
+of a variable is declared, it can only hold a value of that particular
+type, and NOT value of the other types. For example, an <code>int</code>
+(integer) variable can hold only an integer value, and NOT a
+floating-point number or a text string. You can declare a variable (<em>name</em> and <em>type</em>) anywhere in your program, as long as it is declared before it is being used.  You can only declare the same variable once.</p>
+<p>An <em>identifier</em> is needed to <em>name</em> a variable (or any other entities such as method, class or package). Java imposes the following <em>rules on identifiers</em>:</p>
+<ul>
+<li>An identifier is a sequence of characters, of any length, comprising letters <code>(a-z, A-Z)</code>, digits <code>(0-9)</code>, underscore '<code>_</code>', and dollar sign '<code>$</code>'.</li>
+<li>White space (blank, tab, new-line) and other special characters (such as <code>'@'</code>, <code>'-'</code>, <code>'&amp;'</code>, etc.) are not allowed.</li>
+<li>The letters are case-sensitive.</li>
+<li>An identifier must begin with a letter or underscore. It cannot begin with a digit. Identifiers begin with "<code>$</code>" are reserved for system-generated entities.</li>
+<li>An identifier cannot be a reserved word or literal (e.g., <code>class</code>, <code>int</code>, <code>if</code>, <code>then</code>, <code>for</code>, <code>true</code>, <code>false</code>).</li>
+</ul>
+
+
+<p><strong>Variable Naming Convention:</strong> A variable name shall
+be a noun, made up of one or several words.&nbsp;The first word is in
+lowercase, while the remaining words are initial-capitalized (called <em>camel-case</em>). For example, <code>thefontSize</code>, <code>roomNumber</code>, <code>xMax</code>, <code>yMin</code>,  <code>xTopLeft</code> and <code>thisIsAVeryLongVariableName</code>. You should not use underscore (<code>'_'</code>) or dash (<code>'-'</code>)
+to join the words. It is important to use a name that closely reflect
+the meaning of the variable, instead of meaningless names like <code>i</code>, <code>j</code>, <code>k</code>, <code>i1</code>, <code>j99</code>.
+You should use the singular and plural nouns prudently to differentiate
+between singular and plural variables.&nbsp; For example, you may use
+the variable <code>row</code> to refer to a single row and the variable <code>rows</code>  to refer to many rows.</p>
+
+<p>For <em>constants</em>, the name shall make up of words in uppercase and joined with underscore. For example, <code>MAX_INTEGER</code>, <code>MIN_DOUBLE</code>.</p>
+
+<p>The syntax for declaring variables is as follows:</p>
+
+<table class="table-program">
+<tbody><tr>
+<th>SYNTAX</th>
+<th>EXAMPLE</th>
+</tr>
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// Declare one variable of the specified type</span>
+<em>type identifier</em><strong>;</strong>
+<span class="code-comment">// Declare more variables of the same type, separated by commas</span>
+<em>type identifier-1</em><strong>,</strong> <em>identifier-2</em><strong>,</strong> ...<strong>,</strong> <em>identifier-n</em><strong>;</strong>
+<span class="code-comment">// Declare one variable and assign an initial value</span>
+<em>type identifier</em> <strong>=</strong> <em>value</em><strong>;</strong>
+<span class="code-comment">// Declare more variables with initial values</span>
+<em>type identifier-1</em> <strong>=</strong> <em>value-1</em><strong>,</strong> ...<strong>,</strong> <em>identifier-n</em> <strong>=</strong> <em>value-n</em><strong>;</strong>
+</pre>
+</td>
+<td>
+<pre class="code-explanation">&nbsp;
+int option;
+&nbsp;
+double sum, difference, product, quotient;
+&nbsp;
+int magicNumber = 88;
+&nbsp;
+String greetingMsg = "Hi!", quitMsg = "Bye!";
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>Java is <em>case-sensitive</em>. A <code>rose</code> is NOT a <code>Rose</code>, and is NOT a <code>ROSE</code>.</p>
+
+<h3>Literals</h3>
+<p>A <em>literal</em> is a <em>fixed value</em>, e.g., 123, 3.1416, "Hello", that can be assigned to a variable.</p>
+
+<h3>Expressions</h3>
+<p>An <em>expression</em> is a combination of operators (e.g., <code>+</code>, <code>-</code>), operands (variables or literals), and sub-expressions, that can be <em>evaluated to yield a single value</em> of a certain type. For example,</p>
+<pre class="code-example">1 + 2
+sum + number
+(number1 + 35.61) * number2 / number3
+</pre>
+
+<h3>Assignment</h3>
+<p>An <em>assignment statement</em> assigns a literal value to a
+variable; or evaluates an expression to obtain the resultant value and
+assign the value to a variable. The syntax for assignment is:</p>
+
+<table class="table-program">
+<tbody><tr>
+<th>SYNTAX</th>
+<th>EXAMPLE</th>
+</tr>
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// Assign the literal (RHS) to the variable (LHS)</span>
+<em>variable</em> <strong>=</strong> <em>literal-value</em><strong>;</strong>
+<span class="code-comment">// Evaluate the expression (RHS) and assign the result to the variable (LHS)</span>
+<em>variable</em> <strong>=</strong> <em>expression</em><strong>;</strong>
+</pre>
+</td>
+<td>
+<pre class="code-explanation">&nbsp;
+number = 88;
+&nbsp;
+sum = sum + number;
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>The symbol "<code>=</code>" is known as the <em>assignment operator</em>. The assignment statement should be interpreted this way: the <em>expression</em> at the right-hand-side (RHS) is evaluated first to produce a resultant value (called <em>rvalue</em> or right-value), and the <em>rvalue</em> is then assigned to the variable on the left-hand-side (LHS). Always evaluate the value of the RHS first. For examples,</p>
+<pre class="code-example">number = 8;           <span class="code-comment">// Assign literal value of 8 to the variable number</span>
+number = number + 1;  <span class="code-comment">// Evaluate the expression of number + 1,
+                      //  and assign the resultant value back to the variable number</span></pre>
+
+<p>The meaning of symbol "<code>=</code>" in programming is different from Mathematics. It denotes <em>assignment</em> instead of <em>equality</em>. The LHS must be a variable, while the RHS is a literal value; or an expression that evaluates to a value.  Note that <code>x = x + 1</code> is meaningful in programming (evaluate <code>x + 1</code> and assign the resultant value to the variable <code>x</code>) but illegal in Mathematics; while <code>x + y = 1</code>
+is allowed in Mathematics but it cause a syntax error in programming
+(because the LHS of an assignment statement must be a variable). Some
+programming languages use "<code>:=</code>" or "←" as the assignment operator to avoid confusion with equality.</p>
+
+<h3>Types</h3>
+<p>In Java, a variable could belong to a <em>primitive</em> type (e.g., <code>int</code>, <code>double</code>) or an <em>object class</em>. We shall describe the primitive types here and object classes in the later chapters on Object-Oriented Programming.</p>
+
+<h3>Primitive Types</h3>
+
+<table class="table-data">
+<tbody><tr>
+  <th>TYPE</th>
+  <th colspan="2">DESCRIPTION</th>
+</tr>
+<tr>
+  <td><code><strong>byte</strong></code></td>
+  <td rowspan="4">Integer</td>
+  <td>8-bit signed integer<br>
+  The range is <code>[-2^7, 2^7-1] = [-128, +127]</code></td>
+</tr>
+<tr class="table-row-alt">
+  <td><code><strong>short</strong></code></td>
+  <td>16-bit signed integer<br>
+  The range is <code>[-2^15, 2^15-1] = [-32,768, +32,767]</code></td>
+</tr>
+<tr>
+  <td><code><strong>int</strong></code></td>
+  <td>32-bit signed integer<br>
+  The range is <code>[-2^31, 2^31-1] = [-2,147,483,648, +2,147,483,647]</code> (≈9 digits)</td>
+</tr>
+<tr class="table-row-alt">
+  <td><code><strong>long</strong></code></td>
+  <td>64-bit signed integer<br>
+  The range is <code>[-2^63, 2^63-1] = [-9,223,372,036,854,775,808, +9,223,372,036,854,775,807]</code> (≈19 digits)</td>
+</tr>
+<tr>
+  <td><code><strong>float</strong></code></td>
+  <td rowspan="2">Floating-Point<br>Number</td>
+  <td>32-bit single precision floating-point (real) number<br>
+  (<code>≈</code>6-7 significant decimal digits, in the range of <code>±[≈10^-45, ≈10^38]</code>)</td>
+</tr>
+<tr class="table-row-alt">
+  <td><code><strong>double</strong></code></td>
+  <td>64-bit double precision floating-point (real) number<br>
+  (<code>≈</code>14-15 significant decimal digits, in the range of <code>±[≈10^-324, ≈10^308]</code>)</td>
+</tr>
+<tr>
+  <td><code><strong>char</strong></code></td>
+  <td colspan="2">Character<br>
+  Represented in 16-bit Unicode, can be treated as a 16-bit unsigned integer in the range of <code>[0, 65,535]</code></td>
+</tr>
+<tr class="table-row-alt">
+  <td><code><strong>boolean</strong></code></td>
+  <td colspan="2">Binary<br>
+  Takes a literal value of either <code>true</code> or <code>false</code></td>
+</tr>
+</tbody></table>
+
+<img class="image-center" src="J2_Basics_files/Type-primitive.gif" alt="primitive types">
+
+<p>Java has eight <em>primitive</em> types, as listed in the above table:</p>
+<ul>
+<li>There are four integer types: 8-bit <code>byte</code>, 16-bit <code>short</code>, 32-bit <code>int</code>  and 64-bit <code>long</code>. They are <em>signed</em> integers in 2's complement representation, and can hold an integer value of the various ranges as shown in the table.</li>
+<li>There are two floating-point types: 32-bit single-precision <code>float</code> and 64-bit double-precision <code>double</code>, represented as specified by IEEE 754 standard. A  <code>float</code> can represent a number between <code>±1.40239846×10^-45</code> and <code>±3.40282347×10^38</code>, approximated. A <code>double</code> can represented a number between <code>±4.94065645841246544×10^-324</code> and <code>±1.79769313486231570×10^308</code>, approximated. Take note that not all real numbers can be represented by <code>float</code> and <code>double</code>, and many values are approprimated.</li>
+<li>The type <code>char</code> represents a single character, such as <code>'0'</code>, <code>'A'</code>, <code>'a'</code>. In Java, char is represented using 16-bit Unicode (in UCS-2 format) to support internationalization (<em>i18n</em>). A <code>char</code> can be treated as a <em>16-bit unsigned integer</em>. For example, character <code>'0'</code> is 48 (decimal) or 30H (hexadecimal); character <code>'A'</code> is 65 (decimal) or 41H (hexadecimal); character <code>'a'</code> is 97 (decimal) or 61H (hexadecimal).</li>
+<li>Java introduces a new <em>binary </em>type called "<code>boolean</code>", which takes a  value of either <code>true</code> or <code>false</code>.</li>
+</ul>
+
+<p>Another commonly-used type is <code>String</code>, which represents texts (or a sequence of characters) such as "Hello, world". <code>String</code> is not a primitive type, and will be further elaborated later. In Java, a char is enclosed by single quotes (e.g., <code>'A'</code>, <code>'0'</code>), while strings are enclosed by double quotes (e.g., <code>"Hello"</code>).</p>
+<p>Read "<a href="http://www3.ntu.edu.sg/home/ehchua/programming/java/J9a_DataRepresentation.html">Data Representation</a>" if you wish to understand how the numbers and characters are represented inside the computer memory.</p>
+
+<h3>Literals for Primitives &amp; String</h3>
+
+<p>A <em>literal</em> is a  <em>fixed value</em>, such as <code>123</code>, <code>-456</code>, <code>3.14</code>, <code>'a'</code>, <code>"Hello"</code>,
+that can be assigned directly to a variable; or used directly as part
+of an expression. They are called literals because they literally and
+explicitly identify themselves (in comparison with variable).</p>
+<ul>
+<li>An integer literal (i.e., a numeric literal without a decimal point), such as <code>123</code> and <code>-456</code>, is treated as an <code>int</code>. The range of 32-bit <code>int</code>  literals is <code>-2,147,483,628</code> (<code>-2^31</code>) to <code>2,147,483,627</code> (<code>2^31-1</code>). For example,</li>
+<pre class="code-example">int number = -123;
+int sum = 1234567890;         <span class="code-comment">// This value is within the range of int</span>
+<span class="code-error">int bigSum = 11111111111111;</span>  <span class="code-comment">// ERROR: this value is outside the range of int</span>
+</pre>
+An <code>int</code> literal may precede with a plus (<code>+</code>) or minus (<code>-</code>) sign, followed by digits. No commas or special symbols (e.g., <code>$</code> or space) is allowed (e.g., <code>1,234</code> and <code>$123</code> are invalid). No preceding <code>0</code> is allowed too (e.g., <code>007</code> is invalid).
+
+<li>A <code>long</code> literal above the <code>int</code> range requires a suffix <code>'L'</code> or <code>'l'</code> (avoid lowercase, which can be confused with the number one), e.g., <code>123456789012L</code>, <code>-9876543210l</code>. The range of 64-bit <code>long</code> literals is <code>-9,223,372,036,854,775,808L</code> (<code>-2^63</code>) to <code>9,223,372,036,854,775,807L</code> (<code>2^63-1</code>). For example,</li>
+<pre class="code-example">long bigNumber = 1234567890123L;  <span class="code-comment">// Suffix 'L' needed</span>
+long bigSum = 123;                <span class="code-comment">// int 123 auto-casts to long 123L</span>
+</pre>
+
+<li>No suffix is needed for <code>byte</code> and <code>short</code> literals. But you can only use integer values in the permitted range. For example,</li>
+
+<pre class="code-example"><span class="code-error">byte smallNumber = 12345;</span> <span class="code-comment"> // ERROR: this value is outside the range of byte.</span>
+byte smallNumber = 123;    <span class="code-comment">// This is within the range of byte</span>
+short midSizeNumber = -12345;
+</pre>
+
+<li>A floating-point number (i.e., a numeric literal with a decimal point), such as <code>55.66</code> and <code>-33.44</code>, is treated as a <code>double</code>. You can also express them in scientific notation, e.g., <code>1.2e1.23</code>, <code>-5.5E-6.6</code>, where letter <code>e</code> or <code>E</code> denotes the exponent in power of 10. You could precede the fractional part or exponent with a plus (<code>+</code>) or minus (<code>-</code>) sign. There should be no space or other characters (e.g., space) in the number.</li>
+<li>You MUST use a suffix of <code>'f'</code> or <code>'F'</code> for <code>float</code> literals, e.g., <code>-1.2345F</code>. For example,</li>
+
+<pre class="code-example"><span class="code-error">float average = 55.66;</span>      <span class="code-comment">// Error, suffix 'f' needed</span>
+float average = 55.66f;
+</pre>
+
+<li>A <code>char</code> literal is enclosed by <em>single quotes</em>, e.g., <code>'z'</code>, <code>'$'</code>, and <code>'9'</code>. As a <code>char</code> is treated as a 16-bit unsigned integer. In other words, you can assign an integer literal in the range of <code>[0, 65535]</code> to a <code>char</code> variable. For example,</li>
+<pre class="code-example">char letter = 'a';                 <span class="code-comment">// Same as 97</span>
+char anotherLetter = 98;           <span class="code-comment">// Same as the letter 'b'</span>
+System.out.println(letter);        <span class="code-comment">// 'a' printed</span>
+System.out.println(anotherLetter); <span class="code-comment">// 'b' printed instead of the number</span>
+anotherLetter += 2;                <span class="code-comment">// 100 or 'd'</span>
+System.out.println(anotherLetter); <span class="code-comment">// 'd' printed
+</span></pre>
+
+<li>A <code>String</code> literal is surrounded by <em>double quotes</em>, e.g., <code>"Hello, world!"</code>, <code>"The sum is "</code>. For example,</li>
+<pre class="code-example">String directionMessage = "turn right";
+String greetingMessage = "Hello";
+</pre>
+
+<li>There are only two <code>boolean</code> literals, i.e., <code>true</code> and <code>false</code>. For example,</li>
+<pre class="code-example">boolean done = true;
+boolean gameOver = false;
+</pre> 
+</ul>
+
+<h3>Special Characters</h3>
+<p>You need to use a so-called <em>escape sequence</em>, which begins with a back-slash (<code>\</code>), to represent  special characters. For example,</p>
+<ul>
+<li>new-line (<code>\n</code>) and tab (<code>\t</code>), which are non-printable.</li>
+<li>double-quote (<code>\"</code>) and back-slash (<code>\\</code>), to resolve ambiguity inside a double-quoted string.</li>
+</ul>
+
+<table class="table-data">
+<tbody><tr>
+<th>ESCAPE SEQUENCE</th>
+<th>DESCRIPTION</th>
+<th>UNICODE (DECIMAL)</th>
+</tr>
+<tr>
+<td class="td-center"><code>\n</code></td>
+<td>New-line (or Line-feed)</td>
+<td class="td-center"><code>000AH (10D)</code></td>
+</tr>
+<tr class="table-row-alt">
+<td class="td-center"><code>\r</code></td>
+<td>Carriage-return</td>
+<td class="td-center"><code>000DH (13D)</code></td>
+</tr>
+<tr>
+<td class="td-center"><code>\t</code></td>
+<td>Tab</td>
+<td class="td-center"><code>0009H (9D)</code></td>
+</tr>
+<tr class="table-row-alt">
+<td class="td-center"><code>\"</code></td>
+<td>Double-quote</td>
+<td class="td-center"><code>0022H (34D)</code></td>
+</tr>
+<tr>
+<td class="td-center"><code>\\</code></td>
+<td>Back-slash</td>
+<td class="td-center"><code>005CH (92D)</code></td>
+</tr>
+<tr class="table-row-alt">
+<td class="td-center"><code>\u<em>hhhh</em></code></td>
+<td>Unicode character <em>hhhh</em> (in hex), e.g., \u60a8 is 您, \u597d is 好</td>
+<td class="td-center"><code><em>hhhh</em>H</code></td>
+</tr>
+</tbody></table>
+
+<p>To place a double-quote inside a string (which is surrounded by a pair of double-quotes), you need to use escape sequence <code>\"</code>, so that it can be distinguished from the ending double-quote.</p>
+<p><strong>EXAMPLE:</strong></p>
+<pre class="code-output">System.out.println("Use \\\" to place\n a \" within\ta\tstring");
+</pre>
+
+<p><strong>TRY:</strong></p>
+<p>Write a program to print the following picture. Take note that you need to use escape sequences to print special characters.</p>
+<pre class="code-output">          '__'
+          (oo)
+  +========\/
+ / || %%% ||
+*  ||-----||
+   ""     ""
+</pre>
+
+<h3>Arithmetic Operations</h3>
+
+<p>Java supports the following arithmetic operators for numbers (<code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, and <code>char</code> (treated as 16-bit unsigned integer)):</p>
+
+<table class="table-data">
+<tbody><tr>
+  <th>OPERATOR</th>
+  <th>DESCRIPTION</th>
+  <th>EXAMPLES</th>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>+</strong></code></td>
+  <td>Addition</td>
+  <td><code>1 + 2 → 3;  1.1 + 2.2 → 3.3</code></td>
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>-</strong></code></td>
+  <td>Subtraction</td>
+  <td><code>2 + 1 → 1;  3.3 + 2.2 → 1.1</code></td>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>*</strong></code></td>
+  <td>Multiplication</td>
+  <td><code>2 * 3 → 6;  3.3 * 1.0 → 3.3</code></td>
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>/</strong></code></td>
+  <td>Division</td>
+  <td><code>1 / 2 → 0;  1.0 / 2.0 → 0.5</code></td>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>%</strong></code></td>
+  <td>Modulus (Divison Remainder)</td>
+  <td><code>5 % 2 → 1;  6 % 2 → 0</code></td>
+</tr>
+</tbody></table>
+
+<p>All the above are <em>binary</em> operators, i.e., they take two operands.</p>
+
+<p>It is important to take note that <code>int / int</code> produces an <code>int</code>, with the result <em>truncated</em>, e.g.,<code> 1/2 → 0 </code>(instead of 0.5).</p>
+
+<p>If both the operands of an arithmetic operation belong to the <em>same type</em>, the operation is carried out in that type, and the result belongs to that type. For example, <code>int / int → int; double / double → double</code>.</p>
+<p>However, if the two operands belong to <em>different types</em>, the value of the <em>smaller</em> type is promoted automatically to the <em>larger</em> type. The operation is then carried out in the <em>larger</em> type. For example, <code>int / double → double / double → double</code>. Hence, <code>1/2 → 0, 1.0/2.0 → 0.5, 1.0/2 → 0.5, 1/2.0 → 0.5</code>.</p>
+
+<p>Take note that Java does not have an exponent operator (<code>'^'</code> is used for exclusive-or, not exponent).</p>
+
+<h3>Type Casting</h3>
+<p>In Java, you will get a <em>syntax error</em> if you try to assign a <code>double</code> value of to an <code>int</code> variable. This is because the <em>fractional</em> part could be lost, and the compiler signals an error in case that you were not aware. For example,</p>
+<pre class="code-example">double f = 3.5;
+int i;
+<span class="code-error">i = f;</span>               <span class="code-comment">// Error (due to possible loss of precision)</span>
+<span class="code-error">int number = 55.66;</span>  <span class="code-comment">// Error</span>
+</pre>
+
+<p>To assign the a <code>double</code> value to an <code>int</code> variable, you need to<em> </em>invoke the so-called <em>type-casting operator</em> - in the form of <code>(int)</code> - to operate on the <code>double</code> value and return an <code>int</code>. You can then assign the resultant <code>int</code> value to the <code>int</code> variable. For example,</p>
+<pre class="code-example">double f = 3.5;
+int i;
+i = (int) f;    <span class="code-comment">// Cast double value of 3.5 to int. Assign the resultant value 3 to i</span>
+                <span class="code-comment">// Casting from double to int <em>truncates</em>.</span>
+</pre>
+
+<p>In other words, type casting is an operation which takes one
+operand. It operates on its operand, and returns the resultant value.
+This is just like an addition operation although that involves two
+operands.</p>
+
+<p>Explicit type-casting is not required if you assign an <code>int</code> value to a <code>double</code>
+variable, because there is no possible loss of precision. The compiler
+will perform the type-casting automatically. For example,,</p>
+<pre class="code-example">int i = 3;
+double f;
+f = i;           <span class="code-comment">// OK, no explicit type casting required</span>
+                 <span class="code-comment">// f = 3.0</span>
+f = (double) i;  <span class="code-comment">// Explicit type casting operator used here</span>
+double aDouble = 55;   <span class="code-comment">// Compiler auto-casts to 55.0</span>
+double nought = 0;     <span class="code-comment">// Compiler auto-casts to 0.0, int 0 and double 0.0 is different.</span>
+double average = (double)sum / count;  <span class="code-comment">// Assume sum and count are int</span>
+</pre>
+
+<p>EXAMPLE 1: Suppose that you want to find the average (in <code>double</code>) of the integers between <code>1</code> and <code>100</code>. Study the following codes:</p>
+<pre class="code-listing">int sum;
+double average;
+for (int i = 1; i &lt;= 100; i++) {
+   sum = sum + i;      <span class="code-comment">// Final sum is int 5050</span>
+}
+average = sum / 100;   <span class="code-comment">// Won't work (average = 50.0 instead of 50.5)</span>
+</pre>
+
+<p>This is because both the <code>sum</code> and <code>100</code> are <code>int</code>. The result of division is an <code>int</code>, which is then implicitly casted to <code>double</code> and assign to the <code>double</code> variable.  To get the correct answer, you can do either:</p>
+<pre class="code-example">average = (double)sum / 100;     <span class="code-comment">// Cast sum from int to double before division</span>
+average = sum / (double)100;     <span class="code-comment">// Cast 100 from int to double before division</span>
+average = sum / 100.0;
+average = (double)(sum / 100);   <span class="code-comment">// Won't work. why?</span>
+</pre>
+
+<p>EXAMPLE 2: Suppose that you want to generate a random <code>int</code> between <code>0</code> and <code>99</code> (inclusive).  Java provides a method called <code>Math.random()</code>, which returns a <code>double</code> between <code>0.0</code> (inclusive) and <code>1.0</code> (exclusive).</p>
+<pre class="code-example">int secretNumber;
+secretNumber = (int) (Math.random() * 100);
+</pre> 
+
+<h3>More Assignment Operators</h3>
+<p>Besides the usual simple assignment operator <code>'='</code> described earlier, Java also provides the so-called <em>compound assignment operator</em>s listed as follows:</p>
+
+<table class="table-data">
+<tbody><tr>
+  <th>OPERATOR</th>
+  <th>EXAMPLE</th>
+  <th>RESULT</th>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>=</strong></code></td>
+  <td><code>x = 5</code></td>
+  <td>Assign the value of the LHS to the variable at the RHS</td>  
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>+=</strong></code></td>
+  <td><code>x += 5</code></td>
+  <td>same as<code> x = x + 5</code></td>  
+</tr>
+<tr>
+  <td class="td-center"><code><strong>-=</strong></code></td>
+  <td><code>x -= 5</code></td>
+  <td>same as<code> x = x - 5</code></td>  
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>*=</strong></code></td>
+  <td><code>x *= 5</code></td>
+  <td>same as<code> x = x * 5</code></td>  
+</tr>
+<tr>
+  <td class="td-center"><code><strong>/=</strong></code></td>
+  <td><code>x /= 5</code></td>
+  <td>same as<code> x = x / 5</code></td>  
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>%=</strong></code></td>
+  <td><code>x %= 5</code></td>
+  <td>same as<code> x = x % 5</code></td>  
+</tr>
+</tbody></table>
+
+<h3>Pre- and Post- Increment/Decrement</h3>
+<p>Like C++, Java supports the unary arithmetic operators: increment <code>'++'</code> and decrement <code>'--'</code> (by one).</p>
+<table class="table-data">
+<tbody><tr>
+  <th>OPERATOR</th>
+  <th>EXAMPLE</th>
+  <th>RESULT</th>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>++</strong></code></td>
+  <td><code>x++; ++x</code></td>
+  <td>Increment by 1, same as<code> x += 1</code></td>  
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>--</strong></code></td>
+  <td><code>x--; --x</code></td>
+  <td>Decrement by 1, same as<code> x -= 1</code></td>  
+</tr>
+</tbody></table>
+
+<p>The increment/decrement unary operator can be placed before the
+operand (pre), or after the operands (post), which takes on different
+meaning.</p>
+
+<table class="table-data">
+<tbody><tr>
+  <th>OPERATOR</th>
+  <th>DESCRIPTION</th>
+  <th>EXAMPLE</th>
+  <th>RESULT</th>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>var++</strong></code></td>
+  <td>Post-Increment (do increment last)</td>
+  <td><code>y = x++;</code></td>
+  <td>same as<code> y = x; x +=  1;</code></td>  
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>++var</strong></code></td>
+  <td>Pre-Increment (do increment first)</td>
+  <td><code>y = ++x;</code></td>
+  <td>same as<code> x += 1; y = x;</code></td>  
+</tr>
+<tr>
+  <td class="td-center"><code><strong>var--</strong></code></td>
+  <td>Post-Decrement</td>
+  <td><code>y = x--;</code></td>
+  <td>same as<code> y = x; x -= 1;</code></td>  
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>--var</strong></code></td>
+  <td>Pre-Decrement</td>
+  <td><code>y = --x;</code></td>
+  <td>same as<code> x -= 1; y = x;</code></td>  
+</tr>
+</tbody></table>
+
+<p>If '++' or '--' involves another operation, then pre- or post- is
+important to specify the order of the two operations. For examples,</p>
+<pre class="code-example">x = 5;
+System.out.println(x++);  <span class="code-comment">// Print x (5), then increment x (=6). Output is 5.</span>
+x = 5;
+System.out.println(++x);  <span class="code-comment">// Increment x (=6), then print x (6). Output is 6.</span>
+</pre>
+
+<h3>Comparison &amp; "boolean" type</h3>
+<p>Very often, you need to compare two values before deciding on the
+action to be taken, e.g. if mark is less than 50, print "FAIL!".</p>
+<p>Java provides six <em>comparison operators</em> (or <em>relational operators</em>):</p>
+
+<table class="table-data">
+<tbody><tr>
+  <th>OPERATOR</th>
+  <th>DESCRIPTION</th>
+  <th>EXAMPLE (x=5, y=8)</th>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>==</strong></code></td>
+  <td>Equal to</td>
+  <td><code>(x == y) → false</code></td>  
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>!=</strong></code></td>
+  <td>Not Equal to</td>
+  <td><code>(x != y) → true</code></td>  
+</tr>
+<tr>
+  <td class="td-center"><code><strong>&gt;</strong></code></td>
+  <td>Greater than</td>
+  <td><code>(x &gt; y) → false</code></td>  
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>&gt;=</strong></code></td>
+  <td>Greater than or equal to</td>
+  <td><code>(x &gt;= 5) → true</code></td>  
+</tr>
+<tr>
+  <td class="td-center"><code><strong>&lt;</strong></code></td>
+  <td>Less than</td>
+  <td><code>(y &lt; 8) → false</code></td>  
+</tr>
+<tr>
+  <td class="td-center"><code><strong>&lt;=</strong></code></td>
+  <td>Less than or equal to</td>
+  <td><code>(y &lt;= 8) → true</code></td>  
+</tr>
+</tbody></table>
+
+<p>In Java, these comparison operations returns a <code>boolean</code>  value of either <code>true</code> or <code>false</code>.</p>
+
+<p>Each comparison operation involves two operands, e.g., <code>x &lt;= 100</code>. It is invalid to write <code>1 &lt; x &lt; 100</code> in programming. Instead, you need to break out the two comparison operations <code>x &gt; 1</code>, <code>x &lt; 100</code>, and join with with a logical AND operator, i.e., <code>(x &gt; 1) &amp;&amp; (x &lt; 100)</code>, where <code>&amp;&amp;</code> denotes AND operator.</p>
+<p>Java provides four logical operators (which operate on <code>boolean</code> operands only):</p>
+<table class="table-data">
+  <tbody><tr>
+    <th>OPERATOR</th>
+    <th>DESCRIPTION</th>
+    </tr>
+  <tr>
+    <td class="td-center"><code>&amp;&amp;</code></td>
+    <td>Logical AND</td>
+    </tr>
+  <tr class="table-row-alt">
+    <td class="td-center"><code>||</code></td>
+    <td>Logical OR</td>
+    </tr>
+  <tr>
+    <td class="td-center"><code>!</code></td>
+    <td>Logical NOT</td>
+    </tr>
+  <tr class="table-row-alt">
+    <td class="td-center"><code>^</code></td>
+    <td>Logical XOR</td>
+    </tr>
+</tbody></table>
+<p> The truth tables are as follows:</p>
+<table class="table-data">
+<tbody><tr>
+<th>AND <code>(&amp;&amp;)</code></th>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>true</td>
+<td><span class="code-comment">true</span></td>
+<td><span class="code-comment">false</span></td>
+</tr>
+<tr>
+<td>false</td>
+<td><span class="code-comment">false</span></td>
+<td><span class="code-comment">false</span></td>
+</tr>
+</tbody></table>
+
+<table class="table-data">
+<tbody><tr>
+<th>OR <code>(||)</code></th>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>true</td>
+<td><span class="code-comment">true</span></td>
+<td><span class="code-comment">true</span></td>
+</tr>
+<tr>
+<td>false</td>
+<td><span class="code-comment">true</span></td>
+<td><span class="code-comment">false</span></td>
+</tr>
+</tbody></table>
+
+<table class="table-data">
+<tbody><tr>
+<th>NOT <code>(!)</code></th>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td></td>
+<td><span class="code-comment">false</span></td>
+<td><span class="code-comment">true</span></td>
+</tr>
+</tbody></table>
+
+
+
+<table class="table-data">
+<tbody><tr>
+<th>XOR <code>(^)</code></th>
+<td>true</td>
+<td>false</td>
+</tr>
+<tr>
+<td>true</td>
+<td><span class="code-comment">false</span></td>
+<td><span class="code-comment">true</span></td>
+</tr>
+<tr>
+<td>false</td>
+<td><span class="code-comment">true</span></td>
+<td><span class="code-comment">false</span></td>
+</tr>
+</tbody></table>
+
+<p><strong>Examples</strong>:</p>
+<pre class="code-example"><span class="code-comment">// Return true if x is between 0 and 100 (inclusive)</span>
+(x &gt;= 0) &amp;&amp; (x &lt;= 100)
+<span class="code-comment">// wrong to use 0 &lt;= x &lt;= 100</span>
+&nbsp; 
+<span class="code-comment">// Return true if x is outside 0 and 100 (inclusive)</span>
+(x &lt; 0) || (x &gt; 100)   <span class="code-comment">//or</span>
+!((x &gt;= 0) &amp;&amp; (x &lt;= 100))
+&nbsp;
+<span class="code-comment">// Return true if year is a leap year</span>
+<span class="code-comment">// A year is a leap year if it is divisible by 4 but not by 100, or it is divisible by 400.</span>
+((year % 4 == 0) &amp;&amp; (year % 100 != 0)) || (year % 400 == 0)
+</pre>
+
+<h3>Flow Control</h3>
+<p>There are three basic flow control constructs - <em>sequential</em>, <em>conditional</em>, and <em>loop</em>, as illustrated below.</p>
+
+<img class="image-center" src="J2_Basics_files/construct-structure.gif" alt="structure constructs">
+
+<h4>Sequential Flow Control</h4>
+
+<p>A program is a sequence of instructions. <em>Sequential</em> is the
+most common and straight-forward flow, where programming statements are
+executed in the order that they are written - from top to bottom in a
+sequential manner, as illustrated bellow.</p>
+
+<img class="image-center" src="J2_Basics_files/construct-sequential.png" alt="sequential construct">
+
+<h4>Conditional Flow Control</h4>
+<p>There are a few types of conditionals, <em>if-then</em>, <em>if-then-else</em>, <em>nested-if</em> (<em>if-elseif-elseif-...-else</em>), <em>switch-case</em>, and <em>shorthand-if-else</em>.</p>
+
+<table class="table-program">
+
+<tbody><tr>
+<th>SYNTAX</th>
+<th>EXAMPLE</th>
+</tr>
+
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// if-then</span>
+<strong>if (</strong> <em>booleanExpression</em><em></em> <strong>) {</strong>
+   <em>true-body</em> <strong>;</strong>
+<strong>}</strong></pre>
+</td>
+<td>
+<pre class="code-explanation">if (mark &gt;= 50) {
+   System.out.println("Congratulation!");
+}
+   
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// if-then-else</span>
+<strong>if (</strong> <em>booleanExpression</em><em></em> <strong>) {</strong>
+   <em>true-body</em> <strong>;</strong>
+<strong>} else {</strong>
+   <em>false-body</em> <strong>;</strong>
+<strong>}</strong></pre>
+</td>
+<td>
+<pre class="code-explanation">if (mark &gt;= 50) {
+   System.out.println("Congratulation!");
+} else {
+   System.out.println("Try Harder!");
+}
+    
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// Nested-if</span>
+<strong>if (</strong> <em>booleanExpr-1</em> <strong>) {</strong>
+   <em>block-1</em> <strong>;
+} else if (</strong> <em>booleanExpr-2</em> <strong>) {</strong>
+   <em>block-2</em> <strong>;
+} else if (</strong> <em>booleanExpr-3</em> <strong>) {</strong>
+   <em>block-3</em> <strong>;
+} else if (</strong> <em>booleanExpr-4</em> <strong>) {</strong>
+   ......<strong>
+} else {</strong>
+   <em>block-n</em> <strong>;
+}</strong></pre>
+</td>
+<td>
+<pre class="code-explanation">if (mark &gt;= 80) {
+   System.out.println("A");
+} else if (mark &gt;= 70) {  <span class="code-comment">// !(mark &gt;= 80) &amp;&amp; mark &gt;=70</span>
+   System.out.println("B");
+} else if (mark &gt;= 60) {
+   System.out.println("C");
+} else if (mark &gt;= 50) {
+   System.out.println("D");
+} else {
+   System.out.println("F");
+}
+   
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// Shorthand if-else
+// Evaluate to either <em>true-value</em> or 
+// <em>false-value</em> depending on <em>booleanExpr</em></span>
+<em>booleanExpr</em> <strong>?</strong> <em>true-value</em> <strong>:</strong> <em>false-value</em> <strong>;</strong>
+</pre>
+</td>
+<td>
+<pre class="code-explanation">System.out.println( (mark &gt;= 50) ? "PASS" : "FAIL" );
+max = (a &gt; b) ? a : b;
+abs = (a &gt; 0) ? a : -a;
+   
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// switch-case</span>
+<strong>switch (</strong> <em>selection</em><em></em> <strong>) {
+   case</strong> <em>value-1</em><strong>:</strong>
+      <em>statements-1</em><strong>; break;
+   case</strong> <em>value-2</em><strong>:</strong>
+      <em>statements-2</em><strong>; break;
+   case</strong> <em>value-3</em><strong>:</strong>
+      <em>statements-3</em><strong>; break;</strong>
+   ......
+   <strong>default:</strong>
+      <em>statements-default</em><strong>;
+}
+&nbsp;
+&nbsp;</strong>
+</pre>
+</td>
+<td>
+<pre class="code-explanation">char oper; int num1, num2;
+......
+switch (oper) {
+   case '+': 
+      System.out.println(num1 + "+" + num2 + "=" + (num1+num2)); break;
+   case '-': 
+      System.out.println(num1 + "-" + num2 + "=" + (num1-num2)); break;
+   case '*': 
+      System.out.println(num1 + "*" + num2 + "=" + (num1*num2)); break;
+   case '/': 
+      System.out.println(num1 + "/" + num2 + "=" + (num1/num2)); break;
+   default:
+      System.err.println("Unknown operator);
+}
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>In a <em>switch-case</em> statement, a <code>break</code> statement is needed for each of the cases. If <code>break</code> is missing, execution will flow through the following case.  You can use either an <code>int</code> or <code>char</code> variable as the case-<em>selector</em>.</p> 
+
+<div align="center">
+<img src="J2_Basics_files/construct-if-then.png" alt="if-then">
+<img src="J2_Basics_files/construct-if-then-else.png" alt="if-then-else">
+</div>
+
+<img class="image-center" src="J2_Basics_files/construct-nested-if.gif" alt="nested-if">
+<img class="image-center" src="J2_Basics_files/construct-switch-case.gif" alt="switch-case">
+
+<p>You could omit the braces <code>{ }</code>, if there is only one
+statement inside the block. However, I recommend that you keep the
+braces to improve the readability of your program. For example,</p>
+<pre class="code-example">if (mark &gt;= 50) 
+   System.out.println("PASS");   <span class="code-comment">// only one statement, can omit { }</span>
+else {                           <span class="code-comment">// more than one statements, need { }</span>
+   System.out.println("FAIL");
+   System.out.println("Try Harder!");
+}
+</pre>
+
+<h4>Loop Flow Control</h4>
+<p>Again, there are a few types of loops: <em>for-loop</em>, <em>while-do</em>, and <em>do-while</em>.</p>
+
+<table class="table-program">
+
+<tbody><tr>
+<th>SYNTAX</th>
+<th>EXAMPLE</th>
+</tr>
+
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// for-loop</span>
+<strong>for (</strong> <em>init</em> <strong>;</strong> <em>condition</em> <strong>;</strong> <em>post-processing</em> <strong>) {</strong>
+   <em>body</em> <strong>;</strong>
+<strong>}</strong>
+&nbsp; 
+</pre>
+</td>
+<td>
+<pre class="code-explanation"><span class="code-comment">// Sum from 1 to 1000</span>
+int sum = 0;
+for (int number = 1; number &lt;= 1000; number++) {
+   sum += number;
+} 
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// while-do</span>
+<strong>while (</strong> <em>condition</em> <strong>) {</strong>
+   <em>body</em> <strong>;
+}</strong>
+&nbsp;
+</pre>
+</td>
+<td>
+<pre class="code-explanation">int sum = 0, number = 1;
+while (number &lt;= 1000) {
+   sum += number;
+   number++;
+}
+</pre>
+</td>
+</tr>
+<tr>
+<td>
+<pre class="code-syntax"><span class="code-comment">// do-while</span>
+<strong>do {</strong>
+   <em>body</em> <strong>;
+}
+while (</strong> <em>condition</em> <strong>) ;</strong>
+</pre>
+</td>
+<td>
+<pre class="code-explanation">int sum = 0, number = 1;
+do {
+   sum += number;
+   number++;
+} while (number &lt;= 1000) ;</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>The difference between <em>while-do</em> and <em>do-while</em> lies in the order of the <em>body</em> and <em>condition</em>. In <em>while-do</em>, the <em>condition</em> is tested first. The body will be executed if the <em>condition</em> is true and the process repeats.  In <em>do-while</em>, the <em>body</em> is executed and then the <em>condition</em> is tested. Take note that the <em>body</em> of <em>do-while</em> will be executed at least once (vs. possibly zero for <em>while-do</em>).</p>
+
+<p>Suppose that your program prompts user for a number between <code>1</code> to <code>10</code>, and checks for valid input, do-while with a boolean flag could be more appropriate.</p>
+<pre class="code-example"><span class="code-comment">// Input with validity check</span>
+boolean valid = false;
+int number;
+do {
+  <span class="code-comment">// prompt user to enter an int between 1 and 10</span>
+  ......
+  <span class="code-comment">// if the number entered is valid, set done to exit the loop</span>
+  if (number &gt;=1 &amp;&amp; number &lt;= 10) {
+     valid = true;
+  }
+} while (!valid);   <span class="code-comment">// Need a semi-colon to terminate do-while</span>
+</pre> 
+
+<p>Below is an example of using while-do:</p>
+<pre class="code-example"><span class="code-comment">// Game loop</span>
+boolean gameOver = false;
+while (!gameOver) {
+   <span class="code-comment">// play the game</span>
+   ......
+   <span class="code-comment">// Update the game state 
+   // Set gameOver to true if appropriate to exit the game loop</span>
+   ......
+}
+</pre>
+<img class="image-center" src="J2_Basics_files/construct-for-loop.png" alt="for-loop">
+<img class="image-center" src="J2_Basics_files/construct-while-do.png" alt="while-loop">
+<img class="image-center" src="J2_Basics_files/construct-do-while.png" alt="do-while">
+
+<h4>"break" and "continue" Statements</h4>
+<p>The <code>break</code> statement breaks out and exits the current (innermost) loop.</p>
+<p>The <code>continue</code> statement aborts the current iteration and continue to the next iteration of the current (innermost) loop.</p>
+<p><code>break</code> and <code>continue</code> are poor structures as
+they are hard to read and hard to follow. Use them only if absolutely
+necessary. You can always write the same program without using <code>break</code> and <code>continue</code>.</p>
+
+<p><strong>Example</strong>: <code>break</code></p>
+<pre class="code-listing"><span class="code-comment">// Find all prime numbers x between 1 and xMax</span>
+for (int x = 1; x &lt;= xMax; x++) {
+   <span class="code-comment">// Look for factor between 2 and sqrt of x</span>
+   int maxFactor = (int)Math.sqrt(x);
+   for (int factor = 2; factor &lt; maxFactor; factor++) {
+      if (x % factor == 0) {   <span class="code-comment">// Factor of x?</span>
+         System.out.println(x + " is not a prime");
+         break;   <span class="code-comment">// A factor found, no need to search for more factor for this x</span> 
+      }
+   }
+}
+</pre>
+<p>Try rewriting this program using without using <code>break</code> statement.</p>
+
+<p><strong>Example</strong>: <code>continue</code></p>
+<pre class="code-example"><span class="code-comment">// Sum 1 to n, exclude 11, 22, 33,...</span>
+int sum = 0;
+for (int i = 1; i &lt;= n; i++) {
+   if (i % 11 == 0) continue;  <span class="code-comment">// Skip the rest of statements, continue to the next iteration
+</span>   sum += i;
+}
+<span class="code-comment">// It is better to re-write the loop as:</span>
+for (int i = 1; i &lt;= n; i++) {
+   if (i % 11 != 0) sum += i;
+}
+</pre>
+
+<p><strong>Example</strong>: <code>break</code> and <code>continue</code></p>
+<pre class="code-listing">public class EgBreakContinue {
+   public static void main(String[] args) {
+      int number = 1;
+      while(true) {
+         number++;
+         if ((number % 3) == 0) continue;
+         if (number == 133) break;
+         if ((number % 2) == 0) {
+            number += 3;
+         } else {
+            number -= 3;
+         }
+         System.out.print(number + " ");
+      }
+   }
+}
+</pre>
+
+<h4>Pre-mature Termination</h4>
+<p>You could invoke the method <code>System.exit(int exitCode)</code> to terminate the program and return the control to the runtime.  By convention, a non-zero <code>exitCode</code> indicates <em>abnormal termination</em>. For example,</p>
+<pre class="code-example">if (errorCount &gt; 10) {
+   System.out.println("too many errors");
+   System.exit(1);  <span class="code-comment">// Terminate the program</span>
+}
+</pre>
+
+<p>You could also use a <code>return</code> statement in the <code>main()</code> method to terminate the program and return control back to the Java Runtime.
+ For example,</p>
+ <pre class="code-example">public static void main(String[] args) {
+   ...
+   if (errorCount &gt; 10) {
+      System.out.println("too many errors");
+      return;  <span class="code-comment">// Terminate and return control to Java Runtime from main()</span>
+   }
+   ...
+}
+</pre>
+
+<h4>Nested Loops</h4>
+
+<p>Try out the following program, which prints a 8-by-8 checker box pattern using <em>nested loops</em>, as follows:</p>
+
+<pre class="code-output"># # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+# # # # # # # #
+</pre>
+
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td>
+<td>
+<pre class="code-listing"><span class="code-comment">/*
+ * Print 8-by-8 checker box pattern
+ */</span>
+public class PrintPattern {  <span class="code-comment">  // to save as "PrintPattern.java"</span>
+   public static void main(String[] args) {
+      int size = 8;
+      for (int row = 1; row &lt;= size; row++) {   <span class="code-comment">  // outer loop to print all the rows</span>
+         for (int col = 1; col &lt;= size; col++) {  <span class="code-comment">// inner loop to print one row</span>
+            System.out.print("# ");
+         }
+         System.out.println();   <span class="code-comment">// row ended, bring the cursor to next line</span>
+      }
+   }
+}
+</pre></td>
+</tr>
+</tbody></table>
+
+<p>This program contains two <em>nested</em> for-loops. The inner loop is used to print a row of eight "<code># </code>", which is followed by printing a newline. The outer loop repeats the inner loop to print all the rows.</p>
+
+<p>Suppose that you want to print this pattern instead:</p>
+<pre class="code-output"># # # # # # # #
+ # # # # # # # #
+# # # # # # # #
+ # # # # # # # #
+# # # # # # # #
+ # # # # # # # #
+# # # # # # # #
+ # # # # # # # #
+</pre>
+
+<p>You need to print an additional space for even-number rows.  You could do so by adding the following statement before Line 8.</p>
+<pre class="code-example">if ((number % 2) == 0) {   <span class="code-comment">// print a leading space for even-numbered rows</span>
+   System.out.print(" ");
+}
+</pre>
+
+
+<h4>Some Issues in Flow Control</h4>
+
+<p><strong>Dangling Else</strong></p>
+<p>The "dangling else" problem can be illustrated as follows:</p>
+<pre class="code-example">if (i == 0)
+   if (j == 0)
+      System.out.println("i and j are zero");
+else System.out.println("i is not zero");   <span class="code-comment">// intend for the outer-if</span>
+</pre>
+
+<p>The <code>else</code> clause in the above codes is syntactically
+applicable to both the outer-if and the inner-if. Java compiler always
+associate the <code>else</code> clause with the innermost if (i.e.,
+the nearest if). Dangling else can be resolved by applying explicit
+parentheses. The above codes are logically incorrect and require
+explicit parentheses as shown below.</p>
+<pre class="code-example">if ( i == 0) {
+   if (j == 0) System.out.println("i and j are zero");
+} else {
+   System.out.println("i is not zero");   <span class="code-comment">// non-ambiguous for outer-if</span>
+}
+</pre>
+
+<p><strong>Endless loop</strong></p>
+<p>The following constructs:</p>
+<pre class="code-example">while (true) { ... }
+</pre>
+<p>is commonly used.  It seems to be an endless loop (or infinite loop), but it is usually terminated via a <code>break</code> or <code>return</code> statement inside the loop body. This kind of code is hard to read - avoid if possible by re-writing the condition.</p>
+
+<h3>Strings</h3>
+<p>A <code>String</code> is a sequence of 16-bit Unicode characters. A string literal is surrounded by a pair of double quotes, e.g.,</p>
+
+<pre class="code-example">String s1 = "Hi, This is a string!"  <span class="code-comment">// String literals are enclosed in double quotes</span>
+String s2 = ""                       <span class="code-comment">// An empty string</span>
+</pre>
+
+<p>You need to use an escape sequence for special control characters (such as new-line <code>\n</code> and tab <code>\t</code>), double-quote <code>\"</code> and backslash <code>\\</code> (due to conflict) and Unicode character <code>\u<em>hhhh</em></code> (if your editor does not support Unicode input), e.g.,</p>
+
+<pre class="code-example">String s3 = "A \"string" nested \\inside\\ a string"
+String s4 = "Hello, \u60a8\u597d!"   <span class="code-comment">// "Hello, 您好!"</span>
+</pre>
+
+<p>Single-quote (<code>'</code>) does not require an escape sign.</p>
+<pre class="code-example">String s5 = "Hi, I'm a string!"      <span class="code-comment">// Single quote OK</span>
+</pre>
+
+<h4>String and '+' Operator</h4>
+<p>In Java, <code>'+'</code> is a special operator. It is <em>overloaded</em>. <em>Overloading</em> means that it carries out different operations depending on the types of its two operands.</p>
+<ul>
+<li>If both operands are numbers (<code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code>, <code>float</code>, <code>double</code>, <code>char</code>), <code>'+'</code> performs the usual <em>addition</em>, e.g.,</li>
+<pre class="code-example">1 + 2 → 3
+1.2 + 2.2 → 3.4
+</pre>
+
+<li>If both operands are <code>String</code>s, <code>'+'</code> <em>concatenates</em> the two Strings and returns the concatenated <code>String</code>. E.g.,</li>
+<pre class="code-example">"Hello" + "world" → "Helloworld"
+"Hi" + ", " + "world" + "!" → "Hi, world!"</pre>
+
+<li>If one of the operand is a <code>String</code> and the other is numeric, the numeric operand will be converted to <code>String</code> and the two <code>String</code>s concatenated, e.g.,</li>
+<pre class="code-example">"The number is " + 5 → "The number is " + "5" → "The number is 5"
+"The average is " + average + "!" (suppose average=5.5) → "The average is " + "5.5" + "!" → "The average is 5.5!"
+"How about " + a + b (suppose a=1, b=1) → "How about 11"
+</pre>
+</ul>
+
+<h4>String Operations</h4>
+<p>Many methods are available for <code>String</code> operations, e.g.,</p>
+<pre class="code-example">String str = "Java is cool!";
+System.out.println(str.length());            <span class="code-comment">// return int 13</span>
+System.out.println(str.charAt(2)0;           <span class="code-comment">// return char 'v'</span>
+System.out.println(str.substring(0, 3));     <span class="code-comment">// return String "Jav"</span>
+System.out.println(str.indexOf('a'));        <span class="code-comment">// return int 1</span>
+System.out.println(str.lastIndexOf('a'));    <span class="code-comment">// return int 3</span>
+System.out.println(str.endsWith("cool!"));   <span class="code-comment">// return boolean true</span>
+System.out.println(str.toUpperCase());       <span class="code-comment">// return a new String "JAVA IS COOL!"</span>
+&nbsp;
+String str2 = "Java is COOL!";
+<span class="code-comment">// compare two Strings</span>
+System.out.println(str.equals(str2));           <span class="code-comment">// return boolean false</span>
+System.out.println(str.equalsIgnoreCase(str2)); <span class="code-comment">// return boolean true</span>
+<span class="code-comment">// (str == str1) to compare String is WRONG!!!</span>
+</pre>
+
+<p>To check all the available methods for <code>String</code>, open JDK API documentation ⇒ select <em>package</em> "<code>java.lang</code>" ⇒ select <em>class</em> "<code>String</code>" ⇒ choose <em>method</em>.</p>
+
+
+<h4>String &amp; Primitive Conversion</h4>
+<p>You could use the JDK built-in methods <code>Integer.parseInt()</code> to convert a <code>String</code> (representing an integer) into an <code>int</code>, e.g.,</p>
+<pre class="code-example">String inStr = "5566";
+int number = Integer.parseInt(inStr);
+</pre>
+<p>Similarly, you could use <code>Double.parseDouble()</code> or <code>Float.parseFloat()</code> to convert a String (of floating-point number) into a <code>double</code> or <code>float</code>, e.g.</p>
+<pre class="code-example">String inStr = "55.66";
+float aFloat = Float.parseFloat(inStr);
+double aDouble = Double.parseDouble("1.2345");
+</pre>
+
+<p>You can use <code>charAt()</code> to extract individual character from a String, e.g.,</p>
+<pre class="code-example"><span class="code-comment">// Converting from binary to decimal</span>
+String msg = "101100111001!";
+for (int pos = 0; pos &lt; msg.length(); pos++) {
+   char binChar = msg.charAt(pos);   <span class="code-comment">// Extract character at pos</span>
+   <span class="code-comment">// Do something about the character</span>
+   .......
+}
+</pre>
+
+<p>To convert a primitive to a <code>String</code>, you can use the '+' operator to simply concatenate the primitive with an <em>empty</em> <code>String</code>, or use the JDK method <code>String.valueOf()</code>, e.g.,</p>
+<pre class="code-example">"" + 123 → "123"
+12.34 + "" → "12.34"
+String s1 = String.valueOf(12345);   <span class="code-comment">// "12345"</span>
+double d = 55.66;
+String s2 = String.valueOf(d);       <span class="code-comment">// "55.66"</span>
+</pre>
+
+<h3>Writing Correct &amp; Good Programs</h3>
+<p>It is important to write programs that produce the correct results.
+It is also important to write programs that others (and you yourself
+three days later) can understand, so that the programs can be
+maintained - I call these programs good programs.</p>
+
+<p>Here are the suggestions:</p>
+<ul>
+<li>Follow established convention so that everyone has the same basis
+of understanding. To program in Java, you MUTST read the "Code
+Convention for the Java Programming Language" (hyperlink at the JDK
+documentation).</li>
+<li>Format and layout of the source code with appropriate indents,
+white spaces and white lines. Use 3 or 4 spaces for indent, and blank
+line to separate sections of codes. Use "mono-space" fonts for writing
+your program.</li>
+<li>Choose good names that are descriptive and meaningful, e.g., <code>row</code>, <code>col</code>, <code>size</code>, <code>xMax</code>, <code>numStudents</code>. Do not use <code>i1</code>, <code>i2</code>, <code>i3</code> and <code>i99</code>. Use <code>i</code>, <code>j</code> only for temporary variables with short scope.</li>
+<li>Provide sufficient comments to explain the important as well as salient concepts.</li>
+<li>Write your program documentation while writing your programs.</li>
+<li>Avoid <em>un-structured</em> constructs, such as <code>break</code> and <code>continue</code>, which are hard to follow.</li>
+</ul>
+
+<h4>Programming Errors</h4>
+<p>There are generally three classes of programming errors:</p>
+<ol>
+<li><em>Compilation Error</em> (or <em>Syntax Error</em>): can be fixed easily.</li>
+<li><em>Runtime Error</em>: program halts pre-maturely without producing the results - can also be fixed easily.</li>
+<li><em>Logical Error</em>: program completes but produces incorrect
+results. It is easy to detect if the program always produces wrong
+result. It is extremely hard to fix if the program produces the correct
+result most of the times, but incorrect result sometimes. For example,
+<pre class="code-example"><span class="code-comment">// Can compile and execute, but give wrong result – sometimes!</span>
+if (mark &gt; 50) {
+   System.out.println("PASS");
+} else {
+   System.out.println("FAIL");
+}
+</pre>This kind of errors is very serious if it is not caught before
+production. Writing good programs helps in minimizing and detecting
+these errors. A good <em>testing strategy</em> is needed to ascertain the correctness of the program. <em>Software testing</em> is an advanced topics which is beyond our current scope.</li>
+</ol>
+
+<h4>Debugging Programs</h4>
+<p>Here are the common debugging techniques:</p>
+<ol>
+<li>Stare at the screen! Unfortunately, errors usually won't pop-up even if you stare at it extremely hard.</li>
+<li>Study the error messages! Do not close the console when error
+occurs and pretending that everything is fine. This helps most of the
+times.</li>
+<li>Insert print statements at appropriate locations to display the
+intermediate results. It works for simple toy program, but it is
+neither effective nor efficient for complex program.</li>
+<li>Use a graphic debugger. This is the most effective means. Trace
+program execution step-by-step and watch the value of variables and
+outputs.</li>
+<li>Advanced tools such as profiler (needed for checking memory leak and method usage).</li>
+<li>Proper program testing to wipe out the logical errors.</li>
+</ol>
+
+<h3>Input &amp; Output</h3>
+
+<h4>Formatted Output via "printf()" (Java SE 5)</h4>
+
+<p><code>System.out.print()</code> and <code>println()</code> do not provide output formatting, such as controlling the number of spaces to print an <code>int</code> and the number of decimal places for a <code>double</code>.</p>
+<p>Java SE 5 introduced a new method called <code>printf()</code> for formatted output (which is modeled after C Language's <code>printf()</code>). <code>printf()</code> takes the following form:</p>
+
+<pre class="code-syntax">printf(<em>formatting-string</em>, <em>arg1</em>, <em>arg2</em>, <em>arg3</em>, ... );
+</pre>
+
+<p><em>Formatting-string</em> contains both <em>normal texts</em> and the so-called <em>Format Specifier</em>s.
+Normal texts (including white spaces) will be printed as they are.
+Format specifiers, however, will be substituted by the arguments
+following the formatting-string, usually in a one-to-one and sequential
+manner. A format specifier begins with a <code>'%'</code> and followed by the formatting code, e.g., <code>%d</code> for integer, <code>%f</code> for floating-point number, <code>%c</code> for character and <code>%s</code>
+for string. Optional codes can be inserted in between to specify format
+such as width, precision for floating point number, alignment and
+padding. For examples,</p>
+<ul>
+<li><code>%nd</code>: integer printed in <code>n</code> spaces (<code>n</code> is optional).</li>
+<li><code>%ns</code>: String printed in <code>n</code> spaces (<code>n</code> is optional). If <code>n</code> is omitted, the number of spaces is the length of the string.</li>
+<li><code>%n.mf</code>: Floating point number (<code>float</code> and <code>double</code>) printed in <code>n</code> spaces with <code>m</code> decimal digits (<code>n</code> and <code>.m</code> are optional).</li>
+</ul>
+
+<p><strong>Examples: </strong></p>
+<pre class="code-command">System.out.printf("Hello%2d and %6s", 8, "HI!!!\n");
+</pre> 
+<pre class="code-output">Hello*8 and ****HI!!!   <span class="code-comment">// * denotes white-spaces inserted by format specifier</span>
+</pre>
+<pre class="code-command">System.out.printf("Hi,%s%4d\n", "Hello", 88);
+</pre>
+<pre class="code-output">Hi,Hello**88
+</pre>
+<pre class="code-command">System.out.printf("Hi, %d %4.2f\n", 8, 5.556);
+</pre>
+<pre class="code-output">Hi, 8 5.56
+</pre>
+<pre class="code-command">System.out.printf("Hi,%-4s&amp;%6.2f\n", "Hi", 5.5);  <span class="code-comment">// '%-ns' for left-align String</span>
+</pre>
+<pre class="code-output">Hi,Hi**&amp;**5.50
+</pre>
+<pre class="code-command">System.out.printf("Hi, Hi, %.4f\n", 5.56);
+</pre>
+<pre class="code-output">Hi, Hi, 5.5600
+</pre>
+<p>Take note that <code>printf()</code> does not advance the cursor to the next line after printing.  You need to explicitly print a new-line character <code>'\n'</code> at the end of the formatting-string to advance the cursor to the next line, if desires.</p>
+
+<p>There are many more format specifiers in Java. Refer to JDK Documentation for all the format specifier.</p>
+
+<p>(Also take note that <code>printf()</code> take a variable number of arguments (or <em>varargs</em>), which is a new feature introduced in Java SE 5 in order to support <code>printf()</code>)</p>
+<h4>Input From Keyboard via "Scanner" (JDK 1.5)</h4>
+<p>Java, like all other languages, supports three standard input/output streams: <code>System.in</code> (standard input device), <code>System.out</code> (standard output device), and <code>System.err</code> (standard error device). The <code>System.in</code> is defaulted to be the keyword; while <code>System.out</code> and <code>System.err</code> are defaulted to the console. They can be <em>re-directed</em>  to other devices, e.g., it is quite common to redirect <code>System.err</code> to a disk file to save these error message.</p>
+<p>You can read input from keyboard via <code>System.in</code> (standard input device).</p>
+<p>Java SE 5 introduced a new class called <code>Scanner</code> in package <code>java.util</code> to simplify <em>formatted input</em> (and a new method <code>printf()</code> for formatted output). 
+You can construct a <code>Scanner</code> to <em>scan</em> input from <code>System.in</code>, and use methods such as <code>nextInt()</code>, <code>nextDouble()</code>, <code>next()</code> to <em>parse</em> the next <code>int</code>, <code>double</code> and <code>String</code> token (delimited by white space of blank, tab and newline); or method <code>nextLine()</code> to read the entire line.</p>
+
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+
+19
+20
+21</pre>
+</td>
+<td>
+<pre class="code-listing"><strong>import java.util.Scanner;</strong>    <span class="code-comment">// Needed to use the Scanner</span>
+public class ScannerTest {
+   public static void main(String[] args) {
+      int num1;
+      double num2;
+      String str;
+      <span class="code-comment">// Construct a Scanner named "in" for scanning System.in (keyboard)</span>
+      <strong>Scanner in = new Scanner(System.in);</strong>
+      System.out.print("Enter an integer: ");
+      num1 = <strong>in.nextInt()</strong>;         <span class="code-comment">// Use nextInt() to read int</span>
+      System.out.print("Enter a floating point: ");
+      num2 = <strong>in.nextDouble()</strong>;      <span class="code-comment">// Use nextDouble() to read double</span>
+      System.out.print("Enter a string (without spaces): ");
+      str  = <strong>in.next()</strong>;            <span class="code-comment">// Use next() to read a String token, up to white space</span>
+      <span class="code-comment">// Formatted output via printf()</span>
+      System.out.printf("%s, Sum of %d &amp; %.2f is %.2f\n", str, num1, num2, num1+num2);
+      System.out.print("Enter a string (with space): ");
+      str  = <strong>in.nextLine()</strong>;        <span class="code-comment">// use nextLine() to read entire line including white spaces</span>
+      System.out.printf("%s\n", str);
+   }
+}
+</pre></td>
+</tr>
+</tbody></table>
+
+<p>The <code>Scanner</code> supports many other input formats. Check the JDK documentation page, under package <code>java.util</code> ⇒ class <code>Scanner</code> ⇒ Method.</p>
+
+<h4>Input from Text File via "Scanner" (JDK 1.5)</h4>
+<p>Other than  scanning <code>System.in</code> (keyboard), you can connect your <code>Scanner</code> to scan any input source, such as <em>a disk file</em> or <em>a network</em> socket, and use the same methods <code>nextInt()</code>, <code>nextDouble()</code>, <code>next()</code>, <code>nextLine()</code> to parse the next <code>int</code>, <code>double</code>, <code>String</code> and line.  For example,</p>
+<pre class="code-example">Scanner in = new Scanner(new File("in.txt"));  <span class="code-comment">// Construct a Scanner to scan a text file</span>
+<span class="code-comment">// Use the same methods as scanning System.in</span>
+int anInt = in.nextInt();
+double aDouble = in.nextDouble();
+String str = in.next();
+String line = in.nextLine();
+</pre>
+
+<p>To open a file via <code>new File(<em>filename</em>)</code>, you need to handle the so-called <code>FileNotFoundException</code>,
+i.e., the file that you are trying to open cannot be found. Otherwise,
+you cannot compile your program. There are two ways to handle this
+exception: <em>throws</em> or <em>try-catch</em>.</p>
+
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre>
+</td>
+<td>
+<pre class="code-listing"><span class="code-comment">// Technique 1: Declare "throws FileNotFoundException" in the enclosing main() method</span>
+import java.util.Scanner;               <span class="code-comment">// Needed for using Scanner</span>
+<strong>import java.io.File;</strong>                    <span class="code-comment">// Needed for file I/O</span>
+<strong>import java.io.FileNotFoundException;</strong>   <span class="code-comment">// Needed for file I/O</span>
+public class TextFileInput1 {
+   public static void main(String[] args)
+          <strong>throws FileNotFoundException</strong> {  <span class="code-comment">// "throws" declared here</span>
+      int num1;
+      double num2;
+      <strong>Scanner in = new Scanner(new File("in.txt"));</strong>
+      num1 = in.nextInt();      <span class="code-comment">// Read int from file</span>
+      num2 = in.nextDouble();   <span class="code-comment">// Read double from file</span>
+      System.out.printf("The sum of %d and %.2f is %.2f\n", num1, num2, num1+num2);
+   }
+}
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>&nbsp;</p>
+
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre>
+</td>
+<td>
+<pre class="code-listing"><span class="code-comment">// Technique 2: Enclosed in a try-catch construct</span>
+import java.util.Scanner;               <span class="code-comment">// Needed for using Scanner</span>
+<strong>import java.io.File;</strong>                    <span class="code-comment">// Needed for file I/O</span>
+<strong>import java.io.FileNotFoundException;</strong>   <span class="code-comment">// Needed for file I/O</span>
+public class TextFileInput2 {
+   public static void main(String[] args) {
+      int num1;
+      double num2;
+      <strong>Scanner in = null;</strong>                 <span class="code-comment">// Need to init to null to compile</span>
+      <strong>try {</strong>                              <span class="code-comment">// try-catch construct</span>
+         <strong>in = new Scanner(new File("in.txt"));
+      } catch (FileNotFoundException e) {
+         e.printStackTrace();
+      }</strong>
+      num1 = in.nextInt();      <span class="code-comment">// Read int from file</span>
+      num2 = in.nextDouble();   <span class="code-comment">// Read double from file</span>
+      System.out.printf("The sum of %d and %.2f is %.2f\n", num1, num2, num1+num2);
+   }
+}
+</pre></td>
+</tr>
+</tbody></table>
+
+<h4>Formatted Output to Text File</h4>
+<p>Java SE 5.0 also introduced a so-called <code>Formatter</code> for formatted output (just like <code>Scanner</code> for formatted input). A <code>Formatter</code> has a method called <code>format()</code>. The <code>format()</code> method has the same syntax as <code>printf()</code>, i.e., it could use format specifiers to specify the format of the argument. Again, you can handle the <code>FileNotFoundException</code> as above.</p>
+
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+</pre>
+</td>
+<td>
+<pre class="code-listing"><span class="code-comment">// Technique 1: Declare "throws FileNotFoundException" in the enclosing method</span>
+import java.io.File;
+import java.util.Formatter;             <span class="code-comment">// &lt;== note</span>
+import java.io.FileNotFoundException;   <span class="code-comment">// &lt;== note</span>
+public class TextFileOutput1 {
+  public static void main(String[] args)
+      <strong>throws FileNotFoundException</strong> {   <span class="code-comment">// &lt;== note</span>
+    <span class="code-comment">// Construct a Formatter instance linked to a file</span> 
+    <strong>Formatter out = new Formatter(new File("out.txt"));</strong>
+    <span class="code-comment">// Write to file with format() (similar to printf())</span>
+    <strong>out.format("Hi, %4d and %6.2f\n", 12, 5.566);</strong>
+    <strong>out.format("Write string %s\n", "Hello");</strong>
+    <strong>out.close();</strong>                 <span class="code-comment">// close the file</span>
+    System.out.println("Done");  <span class="code-comment">// print to console</span>
+  }
+}
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>&nbsp;</p>
+
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre>
+</td>
+<td>
+<pre class="code-listing"><span class="code-comment">// Technique 2: Enclosed in a try-catch construct</span>
+import java.io.File;
+import java.util.Formatter;             <span class="code-comment">// &lt;== note</span>
+import java.io.FileNotFoundException;   <span class="code-comment">// &lt;== note</span>
+public class TextFileOutput2 {
+  public static void main(String[] args) {
+    <strong>try {</strong>                               <span class="code-comment">// &lt;== note</span>
+<strong>      Formatter out = new Formatter(new File("out.txt"));
+</strong>      out.format("Hi, %4d and %6.2f\n", 12, 5.566);
+      out.format("Write string %s\n", "Hello");
+      out.close();                 <span class="code-comment">// close the file</span>
+      System.out.println("Done");  <span class="code-comment">// print to console</span>
+    <strong>} catch (FileNotFoundException e) {</strong> <span class="code-comment">// &lt;== note</span>
+      <strong>e.printStackTrace();
+    }</strong>
+  }
+}
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+
+<h4>Input via a Dialog Box</h4>
+
+<p>You can also get inputs from users via a graphical dialog box, via the <code>JOptionPane</code> class.  For example, the following program prompts the user to enter the radius of a circle, and computes the area.</p>
+
+<img class="image-center" src="J2_Basics_files/InputViaJOptionPane.gif" alt="Input via JOptionPane">
+
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre>
+</td>
+<td>
+<pre class="code-listing">import javax.swing.JOptionPane;   <span class="code-comment">&lt;== note</span>
+public class InputViaJOptionPane {
+   public static void main(String[] args) {
+      String radiusStr;
+      double radius, area;
+      <span class="code-comment">// read input String from dialog box</span>
+      radiusStr = <strong>JOptionPane.showInputDialog("Enter the radius of the circle")</strong>;
+      radius = Double.parseDouble(radiusStr);   <span class="code-comment">// convert String to double</span>
+      area = radius*radius*Math.PI;
+      System.out.println("The area is " + area);
+   }
+}
+</pre></td>
+</tr>
+</tbody></table>
+
+<p>Dissecting the Program</p>
+<ul>
+<li>In Line 1, the import statement is needed to use the <code>JOptionPane</code>.</li>
+<li>In Line 7, we use the method <code>JOptionPane.showInputDialog(promptMessage)</code> to prompt users for an input, which returns the input as a <code>String</code>.</li>
+<li>Line 8 converts the input <code>String</code> to a <code>double</code>, using the method <code>Double.parseDouble()</code>.</li>
+</ul>
+
+<h4>java.io.Console (JDK 1.6)</h4>
+<p>Java SE 6 introduced a new <code>java.io.Console</code> class to simplify character-based input/output to/from the system console. BUT, the <code>Console</code> class does not run under Eclipse/Netbeans.</p>
+
+<p>To use the new <code>Console</code> class, you first use <code>System.console()</code> to retrieve the  <code>Console</code> object corresponding to the current system console.</p>
+<pre class="code-example">Console con = System.console();
+</pre>
+<p>You can then use methods such as <code>readLine()</code> to read a line. You can optionally include a prompting message with format specifiers (e.g., <code>%d</code>, <code>%s</code>) in the prompting message.</p>
+<pre class="code-example">String inLine = con.readLine();
+String msg = con.readLine("Enter your message: ");        <span class="code-comment">// readLine() with prompting message</span>
+String msg = con.readLine("%s, enter message: ", name);   <span class="code-comment">// Prompting message with format specifier</span>
+</pre>
+<p>You can use <code>con.printf()</code> for formatted output with format specifiers such as <code>%d</code>, <code>%s</code>.
+You can also connect the <code>Console</code> to a <code>Scanner</code> for formatted input, i.e., parsing primitives such as <code>int</code>, <code>double</code>, for example,</p>
+<pre class="code-example">Scanner in = new Scanner(con.reader());  <span class="code-comment">// Use Scanner to scan the Console</span>
+<span class="code-comment">// Use the Scanner's methods such as nextInt(), nextDouble() to parse primitives</span> 
+int anInt = in.nextInt();
+double aDouble = in.nextDouble();
+String str = in.next();
+String line = in.nextLine();
+</pre>
+
+<p><strong>Example</strong>:</p>
+<pre class="code-listing"><strong>import java.io.Console;</strong>
+import java.util.Scanner;
+   
+public class ConsoleTest {
+   public static void main(String[] args) {
+      <strong>Console con = System.console();</strong>   <span class="code-comment">// Retrieve the Console object</span>
+      <span class="code-comment">// Console class does not work in Eclipse/Netbeans</span>
+      if (con == null) {
+          System.err.println("Console Object is not available.");
+          System.exit(1);
+      }
+   
+      <span class="code-comment">// Read a line with a prompting message</span>
+      String name = <strong>con.readLine("Enter your Name: ")</strong>;
+      <strong>con.printf("Hello %s\n", name);</strong>
+      <span class="code-comment">// Use the console with Scanner for parsing primitives</span>
+      <strong>Scanner in = new Scanner(con.reader());</strong>
+      con.printf("Enter an integer: ");
+      int anInt = in.nextInt();
+      con.printf("The integer entered is %d\n", anInt);
+      con.printf("Enter a floating point number: ");
+      double aDouble = in.nextDouble();
+      con.printf("The floating point number entered is %f\n", aDouble);
+   }
+}
+</pre>
+
+<p>The <code>Console</code> class also provides a secure mean for password entry via method <code>readPassword()</code>. This method disables input echoing and keep the password in a <code>char[]</code> instead of a <code>String</code>. The <code>char[]</code>
+containing the password can be and should be overwritten, removing it
+from memory as soon as it is no longer needed. (Recall that <code>String</code>s are immutable and cannot be overwritten. When they are longer needed, they will be garbage-collected at an unknown instance.)</p>
+
+<pre class="code-listing">import java.io.Console;
+import java.util.Arrays;
+   
+public class ConsoleReadPasswordTest {
+   static String login;
+   static <strong>char[] password</strong>;
+   
+   public static void main(String[] args) {
+      Console con = System.console();
+      if (con == null) {
+         System.err.println("Console Object is not available.");
+         System.exit(1);
+      }
+   
+      login = con.readLine("Enter your login Name: ");
+      <strong>password = con.readPassword("Enter your password: ")</strong>;
+      if (checkPassword(login, password)) {
+         <strong>Arrays.fill(password, ' ')</strong>;  <span class="code-comment">// Remove password from memory</span>
+         <span class="code-comment">// Continue ...</span>
+   
+      }
+   }
+   
+   static boolean checkPassword(String login, char[] password) {
+       return true;
+   }
+}
+</pre>
+
+<h3>Arrays</h3>
+<p>Suppose that you want to find the average of the marks for a class
+of 30 students, you certainly do not want to create 30 variables: <code>mark1</code>, <code>mark2</code>, ..., <code>mark30</code>. You could use a single array (of 30 elements) instead.</p>
+
+<ul>
+<li>An array is <em>a list of elements of the same type</em>, identified by a pair of square brackets <code>[ ]</code>.</li>
+<li>An array must be declared with a <em>name</em> and a <em>type</em> (the same as a variable). Use a plural name for array, e.g., <code>marks</code>, <code>rows</code>, <code>numbers</code>.</li>
+<li>An array must be  <em>allocated</em> using <code>new</code> operator, or through <em>initialization</em>, e.g.,
+  <pre class="code-example">int[] marks;  <span class="code-comment">// Declare an int array named marks</span>
+int marks[];  <span class="code-comment">// Same as above, but the above syntax recommended</span>
+marks = new int[5];   <span class="code-comment">// Allocate 5 elements via the "new" operator</span>
+<span class="code-comment">// Declare and allocate a 20-element array in one statement via "new" operator</span>
+int[] factors = new int[20];
+<span class="code-comment">// Declare, allocate a 6-element array thru initialization</span>
+int[] numbers = {11, 22, 33, 44, 55, 66};
+</pre>
+</li>
+<li>The element of an array can be referenced via an index (or subscript) enclosed within the square bracket <code>[ ]</code>.  Java's array index begins with zero (<code>0</code>). For example, suppose that <code>marks</code> is an <code>int</code> array of 5 elements, then the 5 elements are: <code>marks[0]</code>, <code>marks[1]</code>, <code>marks[2]</code>, <code>marks[3]</code>, and <code>marks[4]</code>.</li>
+
+<pre class="code-example">int[] marks = new int[5];   <span class="code-comment">// Declare &amp; allocate a 5-element int array</span>
+<span class="code-comment">// Assign values to the elements</span>
+marks[0] = 95;
+marks[1] = 85;
+marks[2] = 77;
+marks[3] = 69;
+marks[4] = 66;
+System.out.println(marks[0]);
+System.out.println(marks[3] + marks[4]);
+</pre>
+<li>To create an array, you need to known the length (or size) of the
+array in advance, and allocate accordingly. Once an array is created,
+its length is fixed and cannot be changed. At times, it is hard to
+ascertain the length of an array (e.g., how many students?).
+Nonetheless, you need to estimate the length and allocate possibly an
+upper bound. This is probably the major drawback of using an array. </li>
+<li>In Java, the length of array is kept in an <em>associated variable</em> called <code>length</code> and can be retrieved using "<code><em>arrayName</em>.length</code>", e.g.,
+<pre class="code-example">int[] factors = new int[5];       <span class="code-comment">// Declare and allocate a 5-element int array</span>
+int numFactor = factors.length;  <span class="code-comment">// numFactor is 5
+</span></pre>
+The indexes of an array are between <code>0</code> and <code><em>arrayName</em>.length - 1</code>.</li>
+<li>Unlike languages like C/C++, Java performs array <em>index-bound check</em> at the <em>runtime</em>.
+In other words, for each reference to an array element, the index is
+checked against the array's length. If the index is outside the range
+of <code>[0, arrayName.legnth-1]</code>, the Java Runtime will signal an exception called <code> ArrayIndexOutOfBoundException</code>.
+It is important to note that checking array index-bound consumes
+computation power, which inevitably slows down the processing. However,
+the benefits gained in terms of good software engineering weighted more
+than the slowdown in speed.</li>
+</ul>
+
+<img class="image-center" src="J2_Basics_files/Basics-array.gif" alt="array">
+
+<h4>Array &amp; Loop</h4>
+<p>Arrays works with loops. You can process all the elements of an array via a loop, for example,</p>
+
+
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre>
+</td>
+<td>
+<pre class="code-listing"><span class="code-comment">// Find the mean and standard deviation of numbers kept in an array</span>
+public class MeanAndStdDev {
+   public static void main(String[] args) {
+      int[] marks = {74, 43, 58, 60, 90, 64, 70};
+      int sum = 0;
+      int sumSq = 0;
+      int count = marks.length;
+      double mean, stdDev;
+      for (int i=0; i&lt;count; i++) {
+         sum += marks[i];
+         sumSq += marks[i]*marks[i];
+      }
+      mean = (double)sum/count;
+      System.out.printf("Mean is %.2f\n", mean);
+      stdDev = Math.sqrt((double)sumSq/count - mean*mean);
+      System.out.printf("Std dev is %.2f\n", stdDev);
+   }
+}
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<h4>"for-each" Loop (JDK 1.5)</h4>
+<p>Java SE 5 introduced a new loop syntax known as <em>for-each</em> loop, which takes the following syntax:</p>
+
+<table class="table-program">
+<tbody><tr>
+<th>SYNTAX</th>
+<th>EXAMPLE</th>
+</tr>
+
+<tr>
+<td>
+<pre class="code-syntax"><strong>for (</strong> <em>type eachItem</em> <strong>:</strong> <em>anArray</em> <strong>) {</strong>
+   <em>body</em> <strong>;
+}</strong>
+<span class="code-comment">// <em>type</em> must be the same as the
+// <em>anArray</em>'s type
+</span>
+&nbsp;
+</pre></td>
+<td>
+<pre class="code-explanation">int[] numbers = {8, 2, 6, 4, 3};
+int sum = 0;
+for (int number : numbers) {   <span class="code-comment">// for each int number in int[] numbers</span>
+   sum += number;
+}
+System.out.println("The sum is " + sum);
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+<p>For-each loop requires fewer lines of codes to transverse all the elements of an array. However, it can <em>read</em> the elements only, and cannot modify the contents of array.</p>
+
+<h4>Multi-Dimensional Array</h4>
+<p>In Java, you can declare an array of arrays. For examples:</p>
+<pre class="code-example">int grid[][] = new int[12][8];   <span class="code-comment">// a 12×8 grid of int</span>
+grid[0][0] = 8;
+grid[1][1] = 5;
+System.out.println(grid.length);      <span class="code-comment">// 12</span>
+System.out.println(grid[0].length);   <span class="code-comment">// 8</span>
+System.out.println(grid[11].length);  <span class="code-comment">// 8</span>
+</pre>
+
+<p>In the above example, <code>grid</code> is an array of 12 elements. Each of the elements (<code>grid[0]</code> to <code>grid[11]</code>) is an 8-element <code>int</code> array. In other words, <code>grid</code> is a "12-element array" of "8-element int arrays". Hence, <code>grid.length</code> gives <code>12</code> and <code>grid[0].length</code> gives <code>8</code>.</p>
+<p>To be precise, Java does not support multi-dimensional array directly. In other words, it does not support syntax like <code>grid[3, 2]</code>, like some other languages. Furthermore, it is possible that the arrays in an array-of-arrays have different length.</p>
+
+<h4>Command-Line Arguments</h4>
+<p>Java's <code>main()</code> method takes an argument - <code>String[] args</code>, i.e., a <code>String</code> array named <code>args</code>.
+This argument corresponds to the so-called "command-line arguments"
+supplied by the user when the java program is invoked. For example, if
+a Java program called <code>Arithmetic</code> is invoked as follows (in a "cmd" shell):</p>
+<pre class="code-command">&gt; java Arithmetic 12 3456 +
+</pre>
+<p>The items <code>"12"</code>, <code>"3456"</code> and <code>"+"</code> are called the command-line arguments. These arguments will be packed into a <code>String</code> array and passed into the <code>main()</code> method as the parameter <code>args</code> by the Java Runtime. In other words, args has the following properties:</p>
+<pre class="code-example">args = {"12", "3456", "+"}   <span class="code-comment">// "args" is a String array</span>
+args.length = 3              <span class="code-comment">// length of the array args</span>
+args[0] = "12"   <span class="code-comment">            // Each element of the array is a String</span>
+args[1] = "3456"
+args[2] = "+"
+args[0].length() = 2   <span class="code-comment">      // length of the String</span>
+args[1].length() = 4
+args[2].length() = 1
+</pre>
+
+<p><strong>Example:</strong> The program <code>Arithmetic</code> reads three parameters form the command-line, two integers and an arithmetic operator (<code>'+'</code>, <code>'-'</code>, <code>'*'</code>, or <code>'/'</code>), and performs the arithmetic operation accordingly. For example,</p>
+<pre class="code-output">&gt; <strong>java Arithmetic 3 2 +</strong>
+3+2=5
+&gt; <strong>java Arithmetic 3 2 -</strong>
+3-2=1
+&gt; <strong>java Arithmetic 3 2 /</strong>
+3/2=1
+</pre>
+
+<table class="table-program">
+<tbody><tr>
+<td class="code-line-number-width">
+<pre class="code-line-number">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+</pre>
+</td>
+<td>
+<pre class="code-listing">public class Arithmetic {
+   public static void main (String[] args) {
+      int operand1, operand2;
+      char theOperator;
+      operand1 = Integer.parseInt(args[0]);  <span class="code-comment">// Convert String to int</span>
+      operand2 = Integer.parseInt(args[1]);
+      theOperator = args[2].charAt(0);       <span class="code-comment">// Consider only 1st character</span>
+      System.out.print(args[0] + args[2] + args[1] + "=");
+      switch(theOperator) {
+         case ('+'):
+            System.out.println(operand1 + operand2); break;
+         case ('-'):
+            System.out.println(operand1 - operand2); break;
+         case ('*'):
+            System.out.println(operand1 * operand2); break;
+         case ('/'):
+            System.out.println(operand1 / operand2); break;
+         default:
+            System.out.println("\nError: Invalid operator!");
+      }
+   }
+}
+</pre>
+</td>
+</tr>
+</tbody></table>
+
+
+<h3>Methods</h3>
+<p>At times, a certain portion of codes has to be used many times.
+Instead of re-writing the codes many times, it is better to put them
+into a "subroutine", and "call" this subroutine many time. Subroutine
+is also called method (in Java) or function (in C/C++).</p>
+<p>Two parties are involved in using a method: a <em>caller</em>, who calls the method, and the <em>method</em>
+to be called. The caller passes parameters to the method. The method
+receives these parameters, performs the programmed operations, and
+returns the result back to the caller.</p>
+<p>For example, suppose that we need to evaluate the area of a circle many times, it is better to write a method called <code>computeCircleArea()</code>, and re-use it when needed.</p>
+
+<pre class="code-listing">public class MethodTest {
+   public static void main(String[] args) {
+      double radius1 = 1.1, area1, area2;
+      <span class="code-comment">// call method computeCircleArea()</span>
+      area1 = computeCircleArea(radius1);
+      System.out.println("area 1 is " + area1);
+      <span class="code-comment">// call method computeCircleArea()</span>
+      area2 = computeCircleArea(2.2);
+      System.out.println("area 2 is " + area2);
+      <span class="code-comment">// call method computeCircleArea()</span>
+      System.out.println("area 3 is " + computeCircleArea(3.3));
+   }
+   
+   public static double computeCircleArea(double radius) {
+      return radius*radius*Math.PI;   
+   }
+}
+</pre>
+<pre class="code-output">area 1 is 3.8013271108436504
+area 2 is 15.205308443374602
+area 3 is 34.21194399759284
+</pre>
+
+<p>In the above example, a reusable method called <code>computeCircleArea()</code> is defined, which receives a parameter in <code>double</code> from the caller, performs the calculation, and return a <code>double</code> result to the caller.  In the <code>main()</code>, we invoke <code>computeCircleArea()</code> methods thrice, each time with a different parameter.</p>
+
+<p>The syntax for method definition is as follows:</p>
+<pre class="code-syntax"><strong>public static</strong> <em>return-value-typ</em>e <em>methodName </em><strong>(</strong> <em>parameter-1-type parameter-1</em>, <em>parameter-2-type parameter-2</em>,... <strong>) {</strong>
+   <em>body</em> <strong>;
+}
+</strong></pre>
+
+<p>Inside the method body, you could use a <code>return</code> statement to return a value (of the <code>return-value-type</code> declared in the method's signature) to return a value back to the caller. The syntax is:</p>
+<pre class="code-syntax">return <em>a-return-value</em>;   <span class="code-comment">// of <em>return-value-type</em> declared in method's signature</span>
+</pre>
+
+<p><strong>Method Naming Convention:</strong> A method's name is a
+verb, comprising one or more words. The first word is in lowercase,
+while the rest are initial-capitalized. For example, <code>getArea()</code>, <code>setRadius()</code>, <code>moveDown()</code>, <code>isPrime()</code>, etc.</p>
+
+<h4>"void" return-value type</h4>
+
+<p>Suppose that you need a method to perform certain actions (e.g.,
+printing) without a need to return a value to the caller, you can
+declare its return-value type as <code>void</code>. In the method's body, you could use a "<code>return;</code>" statement (without a return value) to return control to the caller - anywhere within the method's body. In this case, the <code>return</code> statement is optional. If there is no <code>return</code> statement, the entire body will be executed, and control returns to the caller at the end of the body.</p>
+
+<p>Notice that <code>main()</code> is a method with a return-value type of <code>void</code>. <code>main()</code> is called by the Java runtime, perform the actions defined in the body, and return nothing back to the Java runtime.</p>
+
+<h4>Actual Parameters vs. Formal Parameters</h4>
+<p>Recall that a method receives parameters from its caller, performs
+the actions defined in the method's body, and return a value (or
+nothing) to the caller.</p>
+<p>In the above example, the variable <code>(double radius)</code> declared in the signature of <code>computeCircleArea(double radius)</code> is known as <em>formal parameter</em>. Its scope is within the method's body. When the method is invoked by a caller, the caller must supply a so-called <em>actual parameter</em>, whose value is then used for the actual computation. For example, when the method is invoked via "<code>area1=computeCircleArea(radius1)</code>", <code>radius1</code> is the actual parameter, with a value of <code>1.1</code>.</p>
+
+<h4>Mathematical Methods</h4>
+<p>JDK provides many common-used Mathematical methods in a class called <code>Math</code>. The signatures of some of these methods are:</p>
+<pre class="code-syntax">double Math.pow(double x, double y) <span class="code-comment">// returns x raises to power of y</span>
+double Math.sqrt(double x)          <span class="code-comment">// returns the square root of x</span>
+double Math.random()                <span class="code-comment">// returns a random number in [0.0, 1.0)</span>
+double Math.sin()
+double Math.cos()</pre>
+
+
+<p>The <code>Math</code> class also provide two constants:</p>
+<pre class="code-syntax">Math.PI   <span class="code-comment">// 3.141592653589793</span>
+Math.E    <span class="code-comment">// 2.718281828459045</span>
+</pre>
+
+<p>To check all the available methods, open JDK API documentation ⇒ select <em>package</em> "<code>java.lang</code>" ⇒ select <em>class</em> "<code>Math</code>" ⇒ choose <em>method</em>.</p>
+
+<p>For examples,</p>
+<pre class="code-example">int secretNumber = (int)Math.random()*100;  <span class="code-comment">// Generate a random int between 0 and 99</span>
+&nbsp;
+double radius = 5.5;
+double area = radius*radius*Math.PI;
+area = Math.pow(radius, 2)*Math.PI;         <span class="code-comment">// Not as efficient as above</span>
+&nbsp;
+int x1 = 1, y1 = 1, x2 = 2, y2 = 2;
+double distance = Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1));
+int dx = x2 - x1;
+int dy = y2 - y1;
+distance = Math.sqrt(dx*dx + dy*dy);        <span class="code-comment">// Slightly more efficient</span>
+</pre>
+
+<h3>Bit-wise Operations</h3>
+
+<h4>Bit-wise Logical Operations</h4>
+
+<p>Bit-wise manipulation operators perform operation on one or two operands on a bit-by-bit basis.</p>
+
+<table class="table-data">
+<tbody><tr>
+  <th> OPERATOR</th>
+  <th>DESCRIPTION</th>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>&amp;</strong></code></td>
+  <td>Bit-wise AND</td>
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>|</strong></code></td>
+  <td>Bit-wise OR</td>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>!</strong></code></td>
+  <td>Bit-wise NOT</td>
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>^</strong></code></td>
+  <td>Bit-wise XOR</td>
+</tr>
+</tbody></table>
+
+
+
+
+<h4>Bit-Shift Operations</h4>
+
+<p>Bit-shift operators perform left or right shift on an operand by a
+specified number of bits. Right-shift can be either signed-extended (<code>&gt;&gt;</code>) (padded with signed bit) or unsigned-extended (<code>&gt;&gt;&gt;</code>) (padded with zeros). Left-shift is always padded with zeros (for both signed and unsigned).</p>
+
+<table class="table-data">
+<tbody><tr>
+  <th> OPERATOR</th>
+  <th>USAGE</th>
+  <th>DESCRIPTION</th>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>&lt;&lt;</strong></code></td>
+  <td><code>operand &lt;&lt; number</code></td>
+  <td>Left-shift and padded with zeros</td>
+</tr>
+<tr class="table-row-alt">
+  <td class="td-center"><code><strong>&gt;&gt;</strong></code></td>
+  <td><code>operand &gt;&gt; number</code></td>
+  <td>Right-shift and padded with sign bit (signed-extended right-shift)</td>
+</tr>
+<tr>
+  <td class="td-center"><code><strong>&gt;&gt;&gt;</strong></code></td>
+  <td><code>operand &gt;&gt;&gt; number</code></td>
+  <td>Right-shift and padded with zeros (unsigned-extended right-shift)</td>
+</tr>
+</tbody></table>
+
+<p>Since all the Java's integers (byte, short, int and long) are signed
+integers, left-shift &lt;&lt; and right-shift &gt;&gt; operators
+perform signed-extended bit shift. Signed-extended right shift &gt;&gt;
+pads the most significant bits with the sign bit to maintain its sign
+(i.e., padded with zeros for positive numbers and ones for negative
+numbers). Operator &gt;&gt;&gt; is needed to perform unsigned-extended
+right shift, which always pads the most significant bits with zeros.
+There is no difference between the signed-extended and
+unsigned-extended left shift, as both operations pad the least
+significant bits with zeros.</p>
+
+<p>[TODO] Examples</p>
+
+<h3>Summary</h3>
+
+<p>[TODO]</p>
+
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h4>REFERENCES &amp; RESOURCES</h4>
+<ul>
+<li>"JDK 1.6 Documentation" (Online copy @ <a href="http://java.sun.com/javase/6/docs">http://java.sun.com/javase/6/docs</a>).</li>
+
+<li>"Code Conventions for the Java Programming Language" @ <a href="http://java.sun.com/docs/codeconv/index.html">http://java.sun.com/docs/codeconv/index.html</a> (MUST READ).</li>
+
+<li>JDK (JavaSE) mother site @ <a href="http://java.sun.com/javase">http://java.sun.com/javase</a>.</li>
+
+<li>[TODO] more</li>
+  
+</ul>
+
+<p class="p-last-modified">Latest version tested: JDK 1.6<br>
+  Last modified: March, 2009</p>
+
+</div>  <!-- End the content division -->
+
+<!-- print footer -->
+<script type="text/javascript" src="J2_Basics_files/footer.js"></script><div id="footer"><p>Feedback, comments, corrections, and errata can be sent to Chua Hock-Chuan (ehchua@ntu.edu.sg) &nbsp;&nbsp;|&nbsp;&nbsp; <a href="http://www3.ntu.edu.sg/home/ehchua/programming/index.html">HOME</a></p></div>
+
+</div>  <!-- End the container division -->
+
+</body></html>

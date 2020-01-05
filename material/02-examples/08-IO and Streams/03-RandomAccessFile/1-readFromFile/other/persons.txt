@@ -1,0 +1,3 @@
+001 | Tran Ngo     | 600 | 200
+003 | Nguyen Cuong | 800 | 100
+002 | Quang Sang   | 700 | 500
