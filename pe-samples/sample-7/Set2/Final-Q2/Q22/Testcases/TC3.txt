@@ -1,0 +1,23 @@
+TEST CASE 3
+INPUT:
+5
+HP22
+97.0
+Damacu
+122.0
+denver
+447.0
+hp2
+97.0
+osaka
+97.0
+2
+100
+OUTPUT:
+5
+REMOVE_SPACES:
+YES
+CASE_SENSITIVE:
+NO
+MARK:
+1.0
